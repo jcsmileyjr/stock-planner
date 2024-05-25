@@ -1,0 +1,104 @@
+{
+    "initialInvestment": 10000,
+    "totalInvestment": 12500,
+    "winners": 4,
+    "losers": 2,
+    "stocks": [
+        {
+            "symbol": "AAPL",
+            "name": "Apple Inc.",
+            "status": "purchased",
+            "currentPrice": 150,
+            "targetSellPrice": 150,
+            "targetBuyPrice": 130,
+            "purchasedPrice": 129,
+            "flag": "Sell Now",
+            "quantity": 10,
+            "profitMargin": 210
+        },
+        {
+            "symbol": "MSFT",
+            "name": "Microsoft Corporation",
+            "status": "purchased",
+            "currentPrice": 145,
+            "targetSellPrice": 150,
+            "targetBuyPrice": 135,
+            "purchasedPrice": 138,
+            "flag": "Sell Soon",
+            "quantity": 10,
+            "profitMargin": 70
+        },
+        {
+            "symbol": "GOOG",
+            "name": "Alphabet Inc.",
+            "status": "purchased",
+            "currentPrice": 140,
+            "targetSellPrice": 150,
+            "targetBuyPrice": 125,
+            "purchasedPrice": 121,
+            "flag": "Wait",
+            "quantity": 10,
+            "profitMargin": 190
+        },
+        {
+            "symbol": "AMZN",
+            "name": "Amazon.com, Inc.",
+            "status": "purchased",
+            "currentPrice": 100,
+            "targetSellPrice": 150,
+            "targetBuyPrice": 130,
+            "purchasedPrice": 128,
+            "flag": "Dump",
+            "quantity": 10,
+            "profitMargin": 280
+        },
+        {
+            "symbol": "TSLA",
+            "name": "Tesla, Inc.",
+            "status": "scouted",
+            "currentPrice": 128,
+            "targetSellPrice": 150,
+            "targetBuyPrice": 130,
+            "purchasedPrice": 128,
+            "flag": "Buy Now",
+            "quantity": 0,
+            "profitMargin": 0
+        },
+        {
+            "symbol": "FB",
+            "name": "Facebook, Inc.",
+            "status": "scouted",
+            "currentPrice": 135,
+            "targetSellPrice": 150,
+            "targetBuyPrice": 133,
+            "purchasedPrice": 135,
+            "flag": "Buy Soon",
+            "quantity": 0,
+            "profitMargin": 0
+        },
+        {
+            "symbol": "NVDA",
+            "name": "NVIDIA Corporation",
+            "status": "scouted",
+            "currentPrice": 135,
+            "targetSellPrice": 150,
+            "targetBuyPrice": 125,
+            "purchasedPrice": 135,
+            "flag": "Wait",
+            "quantity": 0,
+            "profitMargin": 0
+        },
+        {
+            "symbol": "INTC",
+            "name": "Intel Corporation",
+            "status": "sold",
+            "currentPrice": 200,
+            "targetSellPrice": 175,
+            "targetBuyPrice": 120,
+            "purchasedPrice": 125,
+            "flag": "Sell Now",
+            "quantity": 10,
+            "profitMargin": 750
+        }
+    ]
+}
