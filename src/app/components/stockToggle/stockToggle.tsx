@@ -26,19 +26,19 @@ export default function StockToggle() {
                     {Object.keys(testStock).map((key) => {
                         if(key === 'purchasedPrice' || key === 'quantity' || key === 'profitMargin') {
                             return (
-                                <p key={`${testStock['symbol']}-${key}`} className="hidden md:block">{testStock[key]}</p>
+                                <p key={`${testStock['symbol']}-${key}`} className="hidden lg:block lg:w-1/6">{testStock[key]}</p>
                             )
                         } else if (key === 'symbol') {
                             return (
-                                <p key={`${testStock['symbol']}-${key}`} className="w-1/5">{testStock[key]}</p>
+                                <p key={`${testStock['symbol']}-${key}`} className="w-1/5 lg:w-1/6">{testStock[key]}</p>
                             )
                         } else if (key === 'currentPrice') {
                             return (
-                                <p key={`${testStock['symbol']}-${key}`} className="w-1/3">{testStock[key]}</p>
+                                <p key={`${testStock['symbol']}-${key}`} className="w-1/3 lg:w-1/6">{testStock[key]}</p>
                             )
                         } else {
                             return (
-                                <p key={`${testStock['symbol']}-${key}`} className='w-1/4'>{testStock[key]}</p>
+                                <p key={`${testStock['symbol']}-${key}`} className='w-1/4 lg:w-1/6'>{testStock[key]}</p>
                             )
                         }
                     })}
