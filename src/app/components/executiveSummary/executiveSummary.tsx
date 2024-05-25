@@ -12,7 +12,7 @@ import dataType from '../../types/dataType';
 const determineWinners = (data: dataType) => {
     let count = 0;
     data.stocks.forEach((stock) => {
-        if(stock.profitMargin > 0 && stock.status === 'sold') {
+        if (stock.profitMargin > 0 && stock.status === 'sold') {
             count++;
         }
     })
@@ -29,7 +29,7 @@ const determineWinners = (data: dataType) => {
 const determineLosers = (data: dataType) => {
     let count = 0;
     data.stocks.forEach((stock) => {
-        if(stock.profitMargin < 0 && stock.status === 'sold') {
+        if (stock.profitMargin < 0 && stock.status === 'sold') {
             count++;
         }
     })

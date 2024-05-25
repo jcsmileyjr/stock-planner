@@ -12,9 +12,9 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 130,
             "purchasedPrice": 129,
-            "flag": "Sell Now",
+            "profitMargin": 210,
             "quantity": 10,
-            "profitMargin": 210
+            "flag": "Sell Now"
         },
         {
             "symbol": "MSFT",
@@ -24,9 +24,9 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 135,
             "purchasedPrice": 138,
-            "flag": "Sell Soon",
+            "profitMargin": 70,
             "quantity": 10,
-            "profitMargin": 70
+            "flag": "Sell Soon"
         },
         {
             "symbol": "GOOG",
@@ -36,9 +36,9 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 125,
             "purchasedPrice": 121,
-            "flag": "Wait",
+            "profitMargin": 190,
             "quantity": 10,
-            "profitMargin": 190
+            "flag": "Wait"
         },
         {
             "symbol": "AMZN",
@@ -48,9 +48,9 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 130,
             "purchasedPrice": 128,
-            "flag": "Dump",
+            "profitMargin": 280,
             "quantity": 10,
-            "profitMargin": 280
+            "flag": "Dump"
         },
         {
             "symbol": "TSLA",
@@ -60,9 +60,9 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 130,
             "purchasedPrice": 128,
-            "flag": "Buy Now",
+            "profitMargin": 0,
             "quantity": 0,
-            "profitMargin": 0
+            "flag": "Buy Now"
         },
         {
             "symbol": "FB",
@@ -72,9 +72,9 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 133,
             "purchasedPrice": 135,
-            "flag": "Buy Soon",
+            "profitMargin": 0,
             "quantity": 0,
-            "profitMargin": 0
+            "flag": "Buy Soon"
         },
         {
             "symbol": "NVDA",
@@ -84,9 +84,9 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 125,
             "purchasedPrice": 135,
-            "flag": "Wait",
+            "profitMargin": 0,
             "quantity": 0,
-            "profitMargin": 0
+            "flag": "Wait"
         },
         {
             "symbol": "INTC",
@@ -96,9 +96,9 @@
             "targetSellPrice": 175,
             "targetBuyPrice": 120,
             "purchasedPrice": 125,
-            "flag": "Sell Now",
+            "profitMargin": 750,
             "quantity": 10,
-            "profitMargin": 750
+            "flag": "Sell Now"
         },
         {
             "symbol": "AMD",
@@ -108,9 +108,9 @@
             "targetSellPrice": 175,
             "targetBuyPrice": 140,
             "purchasedPrice": 140,
-            "flag": "Dump",
+            "profitMargin": -1000,
             "quantity": 10,
-            "profitMargin": -1000
+            "flag": "Dump"
         }
     ]
 }
