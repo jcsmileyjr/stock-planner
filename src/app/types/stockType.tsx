@@ -1,4 +1,4 @@
-export default interface Stock {
+export default interface StockType {
     symbol: string
     name: string
     status: string

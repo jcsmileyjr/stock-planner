@@ -1,6 +1,6 @@
-import Stock from "./stock"
+import Stock from "./stockType"
 
-export default interface data {
+export default interface dataType {
     initialInvestment: number
     totalInvestment: number
     winners: number

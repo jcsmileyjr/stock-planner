@@ -1,10 +1,10 @@
 "use client"
 import {useState} from 'react';
 import Data from '../../data/testData.json';
-import Stock from '../../types/stock';
+import StockType from '../../types/stockType';
 import GenericStock from '../../data/genericStock.json';
 
-const refineCurrentInvestment = (data: Stock) => {
+const refineCurrentInvestment = (data: StockType) => {
     let refinedData: {[key: string]: string|number} = {}
     for (const property in data) {
         if(property === 'purchasedPrice' || property === 'quantity' || property === 'profitMargin' || property === 'targetSellPrice' || property === 'currentPrice' || property === 'symbol' || property === 'flag') {

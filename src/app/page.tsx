@@ -3,7 +3,7 @@ import ExecutiveSummary from './components/executiveSummary/executiveSummary';
 import CurrentInvestments from './components/currentInvestments/currentInvestments';
 import ScoutInvestments from './components/scoutInvestments/scoutInvestments';
 import TestData from './data/testData.json';
-import Stock from './types/stock';
+import Stock from './types/stockType';
 
 // TODO: function that refine the data for Current Investments
 

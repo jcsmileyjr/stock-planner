@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Info from '../../images/info.png';
-import data from '../../types/data';
+import dataType from '../../types/dataType';
 
 
 /**
@@ -9,7 +9,7 @@ import data from '../../types/data';
  * @param {data} data - The data object containing stock information.
  * @return {number} The count of winners.
  */
-const determineWinners = (data: data) => {
+const determineWinners = (data: dataType) => {
     let count = 0;
     data.stocks.forEach((stock) => {
         if(stock.profitMargin > 0 && stock.status === 'sold') {
@@ -26,7 +26,7 @@ const determineWinners = (data: data) => {
  * @param {data} data - The data object containing stock information.
  * @return {number} The count of losers.
  */
-const determineLosers = (data: data) => {
+const determineLosers = (data: dataType) => {
     let count = 0;
     data.stocks.forEach((stock) => {
         if(stock.profitMargin < 0 && stock.status === 'sold') {
@@ -36,7 +36,7 @@ const determineLosers = (data: data) => {
     return count;
 }
 
-export default function ExecutiveSummary({content}: {content: data}) {
+export default function ExecutiveSummary({content}: {content: dataType}) {
     return (
         <section className=" col-span-1 md:px-4 pb-4 mb-4 border-solid border-b-2 border-slate-500">
             <h1 className="underline font-bold uppercase text-2xl mb-2">Executive Summary</h1>
