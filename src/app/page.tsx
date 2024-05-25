@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <Header />
-      <div className='grid md:grid-cols-2 md:grid-rows-2'>
+      <div className='grid md:grid-cols-3 md:grid-rows-2 px-4'>
         <ExecutiveSummary />
         <CurrentInvestments />
         <ScoutInvestments />
