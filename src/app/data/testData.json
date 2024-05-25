@@ -99,6 +99,18 @@
             "flag": "Sell Now",
             "quantity": 10,
             "profitMargin": 750
+        },
+        {
+            "symbol": "AMD",
+            "name": "Advanced Micro Devices, Inc.",
+            "status": "sold",
+            "currentPrice": 100,
+            "targetSellPrice": 175,
+            "targetBuyPrice": 140,
+            "purchasedPrice": 140,
+            "flag": "Dump",
+            "quantity": 10,
+            "profitMargin": -1000
         }
     ]
 }
