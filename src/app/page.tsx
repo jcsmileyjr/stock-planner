@@ -21,10 +21,22 @@ const refineCurrentInvestment = (data : dataType) : stockType[] => {
 }
 
 // TODO: function that refine the data for Scout Investments
+const refineScoutInvestment = (data : dataType) : stockType[] => {
+  let initialStockArray: stockType[] = data.stocks;
+  let stocks: stockType[] = [];
+  initialStockArray.forEach((stock) => {
+    if (stock.status === 'scouted') {
+      stocks.push(stock);
+    }
+  })
+
+  return stocks;
+}
 
 export default function Home() {
   const data = TestData;
   const currentStocks = refineCurrentInvestment(data);
+  const scoutStocks = refineScoutInvestment(data);
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -32,7 +44,7 @@ export default function Home() {
       <div className='grid md:grid-cols-3 md:grid-rows-2 px-4'>
         <ExecutiveSummary content={data} />
         <CurrentInvestments content={currentStocks} />
-        <ScoutInvestments />
+        <ScoutInvestments content={scoutStocks} />
       </div>
     </main>
   )

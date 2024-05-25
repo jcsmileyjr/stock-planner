@@ -59,7 +59,7 @@
             "currentPrice": 128,
             "targetSellPrice": 150,
             "targetBuyPrice": 130,
-            "purchasedPrice": 128,
+            "purchasedPrice": 0,
             "profitMargin": 0,
             "quantity": 0,
             "flag": "Buy Now"
@@ -71,7 +71,7 @@
             "currentPrice": 135,
             "targetSellPrice": 150,
             "targetBuyPrice": 133,
-            "purchasedPrice": 135,
+            "purchasedPrice": 0,
             "profitMargin": 0,
             "quantity": 0,
             "flag": "Buy Soon"
@@ -83,7 +83,7 @@
             "currentPrice": 135,
             "targetSellPrice": 150,
             "targetBuyPrice": 125,
-            "purchasedPrice": 135,
+            "purchasedPrice": 0,
             "profitMargin": 0,
             "quantity": 0,
             "flag": "Wait"

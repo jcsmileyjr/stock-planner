@@ -34,9 +34,9 @@ export default function StockToggle({stock}: {stock: stockType}) {
                             return (
                                 <p key={`${stock['symbol']}-${key}`} className="w-1/3 lg:w-1/6">${stock[key]}</p>
                             )
-                        } else if (key === 'flag' || key === 'targetSellPrice') {
+                        } else if (key === 'flag' || (key === 'targetSellPrice' && stock['status'] === 'purchased') || (key === 'targetBuyPrice' && stock['status'] === 'scouted')) {
                             return (
-                                <p key={`${stock['symbol']}-${key}`} className='w-1/4 lg:w-1/6'>{key === 'targetSellPrice' ? '$' : ''}{stock[key]}</p>
+                                <p key={`${stock['symbol']}-${key}`} className={`${(key === 'flag' && stock['status'] === 'scouted') ? 'indent-2' : ''}  ${key === 'targetBuyPrice' ? 'indent-1' : ''} w-1/4 lg:w-1/6`}>{key === 'targetSellPrice' || key === 'targetBuyPrice' ? '$' : ''}{stock[key]}</p>
                             )
                         }
                     })}
