@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <Header />
-      <div className='grid lg:grid-cols-3 lg:grid-rows-2 px-4 md:px-48 lg:px-4'>
+      <div className='grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-x-4 px-2 md:px-48 lg:px-0'>
         <ExecutiveSummary content={data} />
         <CurrentInvestments content={currentStocks} />
         <ScoutInvestments content={scoutStocks} />

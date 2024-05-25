@@ -85,11 +85,15 @@ const calculateSoldStockProfitMargin = (stock: stockType) => {
 export default function ExecutiveSummary({content}: {content: dataType}) {
     const totalInvestments = calculateTotalInvestments(content);
     return (
-        <section className=" col-span-1 md:px-4 pb-4 mb-4 border-solid border-b-2 border-slate-500">
+        <section className=" col-span-1 pb-4 mb-4 border-solid border-b-2 border-slate-500">
             <h1 className="underline font-bold uppercase text-2xl mb-2">Executive Summary</h1>
             <div className="flex flex-row justify-between mb-2">
                 <p className='flex flex-row'>Total Investments  <Image src={Info} alt="info" width={20} height={50} className='h-4 mx-2 self-center' />   :</p>
-                <p>${totalInvestments} <span className='text-nowrap'>&#40; Initial: ${content.initialInvestment} &#41;</span></p>
+                <p>${totalInvestments}</p>
+            </div>
+            <div className="flex flex-row justify-between mb-2">
+                <p className='flex flex-row'>Initial Investments  <Image src={Info} alt="info" width={20} height={50} className='h-4 mx-2 self-center' />   :</p>
+                <p>${content.initialInvestment}</p>
             </div>
             <div className="flex flex-row justify-between mb-2">
                 <p className='flex flex-row'>Profits (made/loss) <Image src={Info} alt="info" width={20} height={50} className='h-4 mx-2 self-center' />   :</p>

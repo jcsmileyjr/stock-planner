@@ -3,7 +3,7 @@ import stockType from '../../types/stockType';
 
 export default function ScoutInvestments({content}: {content: stockType[]}) {
     return (
-        <section className="col-span-1 md:px-4">
+        <section className="col-span-1">
             <h1 className="underline font-bold uppercase text-2xl mb-2">Scout Investments</h1>
             <div className="flex flex-row mb-2">
                 <p className="w-1/5 lg:w-1/5 font-bold">Symbol</p>
