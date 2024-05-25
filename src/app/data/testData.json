@@ -1,6 +1,6 @@
 {
-    "initialInvestment": 10000,
-    "totalInvestment": 12500,
+    "initialInvestment": 3000,
+    "totalInvestment": 3000,
     "winners": 4,
     "losers": 2,
     "stocks": [
