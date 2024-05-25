@@ -26,21 +26,21 @@ export default function StockToggle({stock}: {stock: stockType}) {
             <details className='w-full my-2' open={openStock} onToggle={() => setOpenStock(!openStock)}>
                 <summary className='flex flex-row'>
                     {Object.keys(stock).map((key) => {
-                        if(key === 'purchasedPrice' || key === 'quantity' || key === 'profitMargin') {
+                        if((key === 'purchasedPrice' || key === 'quantity' || key === 'profitMargin') && stock['status'] === 'purchased') {
                             return (
                                 <p key={`${stock['symbol']}-${key}`} className="hidden lg:block lg:w-1/6 font-bold lg:font-normal">{key === 'quantity' ? "#":"$"}{stock[key]}</p>
                             )
                         } else if (key === 'symbol') {
                             return (
-                                <p key={`${stock['symbol']}-${key}`} className="w-1/5 lg:w-1/6 font-bold">{stock[key]}</p>
+                                <p key={`${stock['symbol']}-${key}`} className={`${stock['status'] === 'scouted' ? 'w-1/5 lg:w-1/5' : 'w-1/5 lg:w-1/6'} font-bold`} >{stock[key]}</p>
                             )
                         } else if (key === 'currentPrice') {
                             return (
-                                <p key={`${stock['symbol']}-${key}`} className="w-1/3 lg:w-1/6">${stock[key]}</p>
+                                <p key={`${stock['symbol']}-${key}`} className={`${stock['status'] === 'scouted' ? 'w-1/3 lg:w-1/3' : 'w-1/3 lg:w-1/6'} `}>${stock[key]}</p>
                             )
                         } else if (key === 'flag' || (key === 'targetSellPrice' && stock['status'] === 'purchased') || (key === 'targetBuyPrice' && stock['status'] === 'scouted')) {
                             return (
-                                <p key={`${stock['symbol']}-${key}`} className={`${(key === 'flag' && stock['status'] === 'scouted') ? 'indent-2' : ''}  ${key === 'targetBuyPrice' ? 'indent-1' : ''} w-1/4 lg:w-1/6`}>{key === 'targetSellPrice' || key === 'targetBuyPrice' ? '$' : ''}{stock[key]}</p>
+                                <p key={`${stock['symbol']}-${key}`} className={`${(key === 'flag' && stock['status'] === 'scouted') ? ' indent-2 lg:indent-0 lg:w-1/4' : 'lg:w-1/6'}  ${key === 'targetBuyPrice' ? 'indent-2 lg:indent-0 lg:w-1/4' : 'lg:w-1/6'} w-1/4 `}>{key === 'targetSellPrice' || key === 'targetBuyPrice' ? '$' : ''}{stock[key]}</p>
                             )
                         }
                     })}
