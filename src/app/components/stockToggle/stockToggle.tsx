@@ -11,7 +11,6 @@ const refineCurrentInvestment = (data: Stock) => {
             refinedData[property] = data[property];
         } 
     }
-    console.log(refinedData)
     return refinedData;
 }
 
@@ -43,7 +42,18 @@ export default function StockToggle() {
                         }
                     })}
                 </summary>
-                More tests
+                {
+                    Object.keys(testStock).map((key) => {
+                        if(key === 'purchasedPrice' || key === 'quantity' || key === 'profitMargin') {
+                            return (
+                                <div className='flex flex-row' key={`${testStock['symbol']}-${key}`}>
+                                    <p className="flex lg:hidden font-bold flex-1">{key}:</p>
+                                    <p className="flex lg:hidden lg:font-normal flex-1">{testStock[key]}</p>
+                                </div>
+                            )
+                        }
+                    })
+                }
             </details>
         </div>
     )
