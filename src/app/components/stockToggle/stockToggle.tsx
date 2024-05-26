@@ -40,7 +40,7 @@ export default function StockToggle({stock}: {stock: stockType}) {
                             )
                         } else if (key === 'flag' || (key === 'targetSellPrice' && stock['status'] === 'purchased') || (key === 'targetBuyPrice' && stock['status'] === 'scouted')) {
                             return (
-                                <p key={`${stock['symbol']}-${key}`} className={`${(key === 'flag' && stock['status'] === 'scouted') ? ' indent-2 lg:indent-0' : ''}  ${key === 'targetBuyPrice' ? 'indent-2 lg:indent-0 ' : ''} flex-1 `}>{key === 'targetSellPrice' || key === 'targetBuyPrice' ? '$' : ''}{stock[key]}</p>
+                                <p key={`${stock['symbol']}-${key}`} className={` flex-1 `}>{key === 'targetSellPrice' || key === 'targetBuyPrice' ? '$' : ''}{stock[key]}</p>
                             )
                         }
                     })}
