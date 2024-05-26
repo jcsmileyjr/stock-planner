@@ -50,7 +50,7 @@ export default function StockToggle({stock}: {stock: stockType}) {
                         if(key === 'purchasedPrice' || key === 'quantity' || key === 'profitMargin') {
                             return (
                                 <div className='flex flex-row' key={`${stock['symbol']}-${key}`}>
-                                    <p className="flex lg:hidden font-medium indent-4 flex-1">{key === 'profitMargin' ? 'Profit Margin' : key==='quantity' ? 'Quantity' : 'Purchased Price'}:</p>
+                                    <p className="flex lg:hidden font-medium indent-4 flex-1">{key === 'profitMargin' ? 'Profit Margin' : key==='quantity' ? 'Quantity' : 'Invest Price'}:</p>
                                     { key === 'profitMargin' && <p className="flex lg:hidden font-normal flex-1">${calculatePurchaseStockProfitMargin(stock)}</p> }
                                     { key !== 'profitMargin' && <p className="flex lg:hidden font-normal flex-1">{key === 'quantity' ? "#":"$"}{stock[key]}</p> }
                                 </div>

@@ -9,7 +9,7 @@ export default function CurrentInvestments({content}: {content: stockType[]}) {
                 <p className="flex-1 font-bold">Symbol</p>
                 <p className="flex-1 font-bold">Live Price</p>
                 <p className="flex-1 font-bold">Sell Price</p>
-                <p className="hidden lg:flex flex-1 font-bold">Purchased Price</p>
+                <p className="hidden lg:flex flex-1 font-bold">Invest Price</p>
                 <p className="hidden lg:flex flex-1 font-bold">Profit Margin</p>
                 <p className="hidden lg:flex flex-1 font-bold">Quantity</p>
                 <p className="flex-1 font-bold">Flag</p>
