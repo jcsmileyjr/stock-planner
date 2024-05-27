@@ -28,7 +28,7 @@ export default function StockToggle({stock}: {stock: stockType}) {
                     {Object.keys(stock).map((key) => {
                         if((key === 'purchasedPrice' || key === 'quantity' || key === 'profitMargin') && stock['status'] === 'purchased') {
                             return (
-                                <p key={`${stock['symbol']}-${key}`} className="hidden lg:block flex-1 font-bold lg:font-normal">{key === 'quantity' ? "#":"$"}{stock[key]}</p>
+                                <p key={`${stock['symbol']}-${key}`} className="hidden lg:block flex-1 font-bold lg:font-normal">{key === 'quantity' ? "#":"$"}{key === 'profitMargin' ? calculatePurchaseStockProfitMargin(stock) : stock[key]}</p>
                             )
                         } else if (key === 'symbol') {
                             return (

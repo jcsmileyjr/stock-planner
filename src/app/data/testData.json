@@ -1,8 +1,5 @@
 {
     "initialInvestment": 3000,
-    "totalInvestment": 3000,
-    "winners": 4,
-    "losers": 2,
     "stocks": [
         {
             "symbol": "AAPL",
@@ -12,7 +9,7 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 130,
             "purchasedPrice": 129,
-            "profitMargin": 210,
+            "profitMargin": 0,
             "quantity": 10,
             "flag": "Sell Now"
         },
@@ -24,7 +21,7 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 135,
             "purchasedPrice": 138,
-            "profitMargin": 70,
+            "profitMargin": 0,
             "quantity": 10,
             "flag": "Sell Soon"
         },
@@ -36,7 +33,7 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 125,
             "purchasedPrice": 121,
-            "profitMargin": 190,
+            "profitMargin": 0,
             "quantity": 10,
             "flag": "Wait"
         },
@@ -48,7 +45,7 @@
             "targetSellPrice": 150,
             "targetBuyPrice": 130,
             "purchasedPrice": 128,
-            "profitMargin": 280,
+            "profitMargin": 0,
             "quantity": 10,
             "flag": "Dump"
         },
@@ -96,7 +93,7 @@
             "targetSellPrice": 175,
             "targetBuyPrice": 120,
             "purchasedPrice": 125,
-            "profitMargin": 750,
+            "profitMargin": 0,
             "quantity": 10,
             "flag": "Sell Now"
         },
@@ -108,7 +105,7 @@
             "targetSellPrice": 175,
             "targetBuyPrice": 140,
             "purchasedPrice": 140,
-            "profitMargin": -1000,
+            "profitMargin": 0,
             "quantity": 10,
             "flag": "Dump"
         }
