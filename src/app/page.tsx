@@ -6,6 +6,16 @@ import TestData from './data/testData.json';
 import stockType from './types/stockType';
 import dataType from './types/dataType';
 
+/**
+ * TODO: Get stock data from a API or JSON file
+ * - Get stored investments, AKA the testData.json
+ * - Formally list all stock symbols based on saved investments.
+ * - Get stock data from API or JSON file
+ * - Get prices for each stock and update/calculate investments
+ * - Convert raw stock data into an array of stock objects to display
+ * - Update variables on this page to use the new stock objects
+ */
+
 // TODO: function that refine the data for Current Investments. 
 // Only include purchased stocks.
 const refineCurrentInvestment = (data : dataType) : stockType[] => {
