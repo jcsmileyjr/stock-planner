@@ -5,10 +5,11 @@ import ScoutInvestments from './components/scoutInvestments/scoutInvestments';
 import TestData from './data/testData.json';
 import stockType from './types/stockType';
 import dataType from './types/dataType';
+import getStockNames  from './utils/getStockNames';
 
 /**
  * TODO: Get stock data from a API or JSON file
- * - Get stored investments, AKA the testData.json
+ * - Get stored investments, AKA the testData.json (initially) but later from localstorage & later from an CMS
  * - Formally list all stock symbols based on saved investments.
  * - Get stock data from API or JSON file
  * - Get prices for each stock and update/calculate investments
@@ -44,6 +45,8 @@ const refineScoutInvestment = (data : dataType) : stockType[] => {
 }
 
 export default function Home() {
+  const stockNames = getStockNames(TestData);
+  console.log(stockNames)
   const data = TestData;
   const currentStocks = refineCurrentInvestment(data);
   const scoutStocks = refineScoutInvestment(data);
