@@ -3,6 +3,7 @@ import Info from '../../images/info.png';
 import dataType from '../../types/dataType';
 import stockType from '../../types/stockType';
 import InformationModal from '../informationModal/informationModal';
+import calculateProfitMargin from '../../utils/calculateProfitMargin';
 
 
 /**
@@ -65,11 +66,11 @@ const calculateProfit = (data: dataType) => {
     let profits = 0;
     data.stocks.forEach((stock) => {
         if (stock.status === 'sold') {
-            profits += calculateSoldStockProfitMargin(stock);
+            profits += calculateProfitMargin(stock);
         }
     })
 
-    return profits;
+    return profits.toFixed(2);
 }
 
 /**

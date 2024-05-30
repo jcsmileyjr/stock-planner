@@ -1,11 +1,9 @@
-import exp from 'constants';
-import Data from '../data/testData.json'; // Mock data
 import dataType from '../types/dataType';
 
 export default function getStockNames(data: dataType) {
-    let stockNames: string[] = [];
+    let listOfStocks: string = "";
     data.stocks.forEach((stock) => {
-        stockNames.push(stock.symbol);
+        listOfStocks += `${stock.symbol},`;
     });
-    return stockNames;
+    return listOfStocks;
 }
