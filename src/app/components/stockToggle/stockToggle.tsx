@@ -2,6 +2,8 @@
 import {useState} from 'react';
 import Data from '../../data/testData.json';
 import stockType from '../../types/stockType';
+import calculateProfitMargin from '../../utils/calculateProfitMargin';
+import StockFlag from '../stockFlag/stockFlag';
 
 const calculatePurchaseStockProfitMargin = (stock: stockType) => {
     return (stock.currentPrice - stock.purchasedPrice) * stock.quantity;
@@ -17,7 +19,7 @@ export default function StockToggle({stock}: {stock: stockType}) {
                     {Object.keys(stock).map((key) => {
                         if((key === 'purchasedPrice' || key === 'quantity' || key === 'profitMargin') && stock['status'] === 'purchased') {
                             return (
-                                <p key={`${stock['symbol']}-${key}`} className="hidden laptop:block flex-1 font-bold laptop:font-normal">{key === 'quantity' ? "#":"$"}{key === 'profitMargin' ? calculatePurchaseStockProfitMargin(stock) : stock[key]}</p>
+                                <p key={`${stock['symbol']}-${key}`} className="hidden laptop:block flex-1 font-bold laptop:font-normal">{key === 'quantity' ? "#":"$"}{key === 'profitMargin' ? calculateProfitMargin(stock) : stock[key]}</p>
                             )
                         } else if (key === 'symbol') {
                             return (
@@ -27,6 +29,8 @@ export default function StockToggle({stock}: {stock: stockType}) {
                             return (
                                 <p key={`${stock['symbol']}-${key}`} className={`flex-1 `}>${stock[key]}</p>
                             )
+                        } else if (key === 'flag') {
+                            return <StockFlag stock={stock} key={`${stock['symbol']}-${key}`} />
                         } else if (key === 'flag' || (key === 'targetSellPrice' && stock['status'] === 'purchased') || (key === 'targetBuyPrice' && stock['status'] === 'scouted')) {
                             return (
                                 <p key={`${stock['symbol']}-${key}`} className={` flex-1 `}>{key === 'targetSellPrice' || key === 'targetBuyPrice' ? '$' : ''}{stock[key]}</p>
@@ -40,7 +44,7 @@ export default function StockToggle({stock}: {stock: stockType}) {
                             return (
                                 <div className='flex flex-row' key={`${stock['symbol']}-${key}`}>
                                     <p className="flex laptop:hidden font-medium indent-4 flex-1">{key === 'profitMargin' ? 'Profit Margin' : key==='quantity' ? 'Quantity' : 'Invest Price'}:</p>
-                                    { key === 'profitMargin' && <p className="flex laptop:hidden font-normal flex-1">${calculatePurchaseStockProfitMargin(stock)}</p> }
+                                    { key === 'profitMargin' && <p className="flex laptop:hidden font-normal flex-1">${calculateProfitMargin(stock)}</p> }
                                     { key !== 'profitMargin' && <p className="flex laptop:hidden font-normal flex-1">{key === 'quantity' ? "#":"$"}{stock[key]}</p> }
                                 </div>
                             )

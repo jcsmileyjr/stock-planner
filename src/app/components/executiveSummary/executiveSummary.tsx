@@ -3,6 +3,7 @@ import Info from '../../images/info.png';
 import dataType from '../../types/dataType';
 import stockType from '../../types/stockType';
 import InformationModal from '../informationModal/informationModal';
+import calculateProfitMargin from '../../utils/calculateProfitMargin';
 
 
 /**
@@ -14,7 +15,7 @@ import InformationModal from '../informationModal/informationModal';
 const calculateWinners = (data: dataType) => {
     let count = 0;
     data.stocks.forEach((stock) => {
-        if (stock.profitMargin > 0 && stock.status === 'sold') {
+        if (calculateProfitMargin(stock) > 0 && stock.status === 'sold') {
             count++;
         }
     })
@@ -31,7 +32,7 @@ const calculateWinners = (data: dataType) => {
 const calculateLosers = (data: dataType) => {
     let count = 0;
     data.stocks.forEach((stock) => {
-        if (stock.profitMargin < 0 && stock.status === 'sold') {
+        if (calculateProfitMargin(stock) < 0 && stock.status === 'sold') {
             count++;
         }
     })
@@ -65,11 +66,11 @@ const calculateProfit = (data: dataType) => {
     let profits = 0;
     data.stocks.forEach((stock) => {
         if (stock.status === 'sold') {
-            profits += calculateSoldStockProfitMargin(stock);
+            profits += calculateProfitMargin(stock);
         }
     })
 
-    return profits;
+    return profits.toFixed(2);
 }
 
 /**
