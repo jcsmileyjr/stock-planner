@@ -2,6 +2,14 @@
 import {useState} from 'react';
 import Image from 'next/image';
 import Info from '../../images/info.png';
+
+/**
+ * Renders an InformationModal component that displays a popup with information based on the provided prompt.
+ *
+ * @param {Object} props - The props object containing the following property:
+ *   @param {string} prompt - The prompt to determine which information to display in the modal.
+ * @return {JSX.Element} The rendered InformationModal component.
+ */
 export default function InformationModal({prompt}: {prompt: string}) {
     const [openInformationModal, setOpenInformationModal] = useState(false);
     

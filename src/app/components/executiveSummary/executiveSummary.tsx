@@ -1,10 +1,6 @@
-import Image from 'next/image';
-import Info from '../../images/info.png';
 import dataType from '../../types/dataType';
-import stockType from '../../types/stockType';
 import InformationModal from '../informationModal/informationModal';
 import calculateProfitMargin from '../../utils/calculateProfitMargin';
-
 
 /**
  * Determines the number of winners based on the given data.
@@ -71,17 +67,6 @@ const calculateProfit = (data: dataType) => {
     })
 
     return profits.toFixed(2);
-}
-
-/**
- * Calculates the profit margin of a sold stock by subtracting the purchased price from the current price,
- * multiplying it by the quantity of stocks, and returning the result.
- *
- * @param {stockType} stock - The stock object containing information about the stock.
- * @return {number} The profit margin of the sold stock.
- */
-const calculateSoldStockProfitMargin = (stock: stockType) => {
-    return (stock.currentPrice - stock.purchasedPrice) * stock.quantity;
 }
 
 export default function ExecutiveSummary({content}: {content: dataType}) {

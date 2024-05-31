@@ -5,10 +5,22 @@ import stockType from '../../types/stockType';
 import calculateProfitMargin from '../../utils/calculateProfitMargin';
 import StockFlag from '../stockFlag/stockFlag';
 
-const calculatePurchaseStockProfitMargin = (stock: stockType) => {
-    return (stock.currentPrice - stock.purchasedPrice) * stock.quantity;
-}
-
+/**
+ * Renders a stock toggle component that displays stock information and allows the user to expand or collapse the details.
+ *
+ * @param {Object} props - The props object.
+ * @param {Object} props.stock - The stock object containing information about the stock.
+ * @param {string} props.stock.symbol - The symbol of the stock.
+ * @param {string} props.stock.name - The name of the stock.
+ * @param {string} props.stock.status - The status of the stock ("purchased" or "scouted").
+ * @param {number} props.stock.currentPrice - The current price of the stock.
+ * @param {number} props.stock.targetSellPrice - The target sell price of the stock.
+ * @param {number} props.stock.targetBuyPrice - The target buy price of the stock.
+ * @param {number} props.stock.purchasedPrice - The purchased price of the stock.
+ * @param {number} props.stock.quantity - The quantity of the stock.
+ * @param {number} props.stock.profitMargin - The profit margin of the stock.
+ * @return {JSX.Element} The stock toggle component.
+ */
 export default function StockToggle({stock}: {stock: stockType}) {
     const [openStock, setOpenStock] = useState(false);
     
