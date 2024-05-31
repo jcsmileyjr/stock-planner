@@ -3,6 +3,7 @@ import {useState} from 'react';
 import Data from '../../data/testData.json';
 import stockType from '../../types/stockType';
 import calculateProfitMargin from '../../utils/calculateProfitMargin';
+import StockFlag from '../stockFlag/stockFlag';
 
 const calculatePurchaseStockProfitMargin = (stock: stockType) => {
     return (stock.currentPrice - stock.purchasedPrice) * stock.quantity;
@@ -28,6 +29,8 @@ export default function StockToggle({stock}: {stock: stockType}) {
                             return (
                                 <p key={`${stock['symbol']}-${key}`} className={`flex-1 `}>${stock[key]}</p>
                             )
+                        } else if (key === 'flag') {
+                            return <StockFlag stock={stock} key={`${stock['symbol']}-${key}`} />
                         } else if (key === 'flag' || (key === 'targetSellPrice' && stock['status'] === 'purchased') || (key === 'targetBuyPrice' && stock['status'] === 'scouted')) {
                             return (
                                 <p key={`${stock['symbol']}-${key}`} className={` flex-1 `}>{key === 'targetSellPrice' || key === 'targetBuyPrice' ? '$' : ''}{stock[key]}</p>
