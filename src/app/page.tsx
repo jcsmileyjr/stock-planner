@@ -50,7 +50,7 @@ const refineScoutInvestment = (data : dataType) : stockType[] => {
 
 async function getStockPrices () {
   const stockNames = getStockNames(TestData);
-  const response = await fetch(`https://financialmodelingprep.com/api/v3/quote-short/${stockNames}?apikey=${process.env.FINANCIALMODELINGPREP_API_KEY}`, { cache: 'no-store' });
+  const response = await fetch(`https://financialmodelingprep.com/api/v3/quote-short/${stockNames}?apikey=${process.env.NEXT_PUBLIC_FINANCIALMODELINGPREP_API_KEY}`, { cache: 'no-store' });
   const data = await response.json();
   return data;
 }
@@ -80,11 +80,11 @@ async function calculateData () {
 }
 
 export default async function Home() {
-  // let data = TestData // fOR TESTING    
+  let data = TestData // fOR TESTING    
   
-  // if(process.env.NODE_ENV !== "development"){
-  // } 
-  let data = await calculateData(); // Production
+  if(process.env.NODE_ENV !== "development"){
+    data = await calculateData(); // Production
+  } 
 
   const currentStocks = await refineCurrentInvestment(data);
   const scoutStocks = await refineScoutInvestment(data);
