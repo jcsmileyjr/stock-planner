@@ -15,7 +15,7 @@ import calculateProfitMargin from '../../utils/calculateProfitMargin';
 const calculateWinners = (data: dataType) => {
     let count = 0;
     data.stocks.forEach((stock) => {
-        if (stock.profitMargin > 0 && stock.status === 'sold') {
+        if (calculateProfitMargin(stock) > 0 && stock.status === 'sold') {
             count++;
         }
     })
@@ -32,7 +32,7 @@ const calculateWinners = (data: dataType) => {
 const calculateLosers = (data: dataType) => {
     let count = 0;
     data.stocks.forEach((stock) => {
-        if (stock.profitMargin < 0 && stock.status === 'sold') {
+        if (calculateProfitMargin(stock) < 0 && stock.status === 'sold') {
             count++;
         }
     })
