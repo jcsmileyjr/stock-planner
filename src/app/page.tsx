@@ -80,11 +80,11 @@ async function calculateData () {
 }
 
 export default async function Home() {
-  let data = TestData // fOR TESTING    
+  // let data = TestData // fOR TESTING    
   
-  if(process.env.NODE_ENV !== "development"){
-    data = await calculateData(); // Production
-  } 
+  // if(process.env.NODE_ENV !== "development"){
+  // } 
+  let data = await calculateData(); // Production
 
   const currentStocks = await refineCurrentInvestment(data);
   const scoutStocks = await refineScoutInvestment(data);
