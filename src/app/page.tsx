@@ -21,8 +21,12 @@ import Footer from './components/footer/footer';
  * - Enable investments to be called from local storage
  */
 
-// TODO: function that refine the data for Current Investments. 
-// Only include purchased stocks.
+
+/**
+ * Refines the current investments by filtering stocks that are purchased.
+ * @param {dataType} data - The data object containing stock information.
+ * @return {stockType[]} An array of stocks that are currently invested.
+ */
 const refineCurrentInvestment = (data : dataType) : stockType[] => {
   let initialStockArray: stockType[] = data.stocks;
   let stocks: stockType[] = [];
@@ -35,7 +39,11 @@ const refineCurrentInvestment = (data : dataType) : stockType[] => {
   return stocks;
 }
 
-// TODO: function that refine the data for Scout Investments
+/**
+ * Filters the given data array to include only stocks with a status of 'scouted'.
+ * @param {dataType} data - The data object containing an array of stocks.
+ * @return {stockType[]} An array of stocks with a status of 'scouted'.
+ */
 const refineScoutInvestment = (data : dataType) : stockType[] => {
   let initialStockArray: stockType[] = data.stocks;
   let stocks: stockType[] = [];
@@ -48,6 +56,10 @@ const refineScoutInvestment = (data : dataType) : stockType[] => {
   return stocks;
 }
 
+/**
+ * Asynchronously fetches stock prices from the FinancialModelingPrep API.
+ * @return {Promise<any>} A Promise that resolves to the JSON response from the API.
+ */
 async function getStockPrices () {
   const stockNames = getStockNames(TestData);
   const response = await fetch(`https://financialmodelingprep.com/api/v3/quote-short/${stockNames}?apikey=${process.env.NEXT_PUBLIC_FINANCIALMODELINGPREP_API_KEY}`, { cache: 'no-store' });
@@ -55,6 +67,11 @@ async function getStockPrices () {
   return data;
 }
 
+/**
+ * Asynchronously calculates the revised data by fetching stock prices and updating the current price for each stock.
+ * If the stock has been sold, then price is not updated.
+ * @return {Promise<dataType>} A Promise that resolves to the revised data object with updated current prices.
+ */
 async function calculateData () {
   const stockPrices = await getStockPrices();
 
@@ -78,6 +95,7 @@ async function calculateData () {
   
   return revisedData;
 }
+
 
 export default async function Home() {
   let data = TestData // fOR TESTING    
