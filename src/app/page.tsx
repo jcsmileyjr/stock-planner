@@ -6,7 +6,7 @@ import TestData from './data/testData.json';
 import stockType from './types/stockType';
 import dataType from './types/dataType';
 import getStockNames  from './utils/getStockNames';
-import calculateProfitMargin from './utils/calculateProfitMargin';
+import Footer from './components/footer/footer';
 
 /**
  * TODO: Get stock data from a API or JSON file
@@ -97,6 +97,7 @@ export default async function Home() {
         <CurrentInvestments content={currentStocks} />
         <ScoutInvestments content={scoutStocks} />
       </div>
+      <Footer />
     </main>
   )
 }
