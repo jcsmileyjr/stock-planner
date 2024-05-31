@@ -16,7 +16,7 @@ import stockType from '../../types/stockType';
  */
 export default function StockFlag ({stock}: {stock: stockType}) {
     let flag: string = "";
-    
+
     const purchaseRatio: number = (stock.currentPrice / stock.targetSellPrice)*100;
     const negativepurchaseRatio: number = stock.purchasedPrice - (stock.purchasedPrice * .1) ;
     if(stock.status === "purchased") {
@@ -33,6 +33,12 @@ export default function StockFlag ({stock}: {stock: stockType}) {
         else flag = "Wait";
     }
     return (
-        <p className={` flex-1 `}>{flag}</p>
+        flag === "Sell Now" && <p className={` flex-1 `}><span className='bg-green-200 text-black font-bold px-2'>{flag}</span></p>
+        || flag === "Sell Soon" && <p className={` flex-1 `}><span className='bg-orange-200 text-black font-bold px-2'>{flag}</span></p>
+        || flag === "Buy Now" && <p className={` flex-1 `}><span className='bg-green-200 text-black font-bold px-2'>{flag}</span></p>
+        || flag === "Buy Soon" && <p className={` flex-1 `}><span className='bg-orange-200 text-black font-bold px-2'>{flag}</span></p>
+        || flag === "Dump" && <p className={` flex-1 `}><span className='bg-red-700 text-white font-bold px-2'>{flag}</span></p>
+        || flag === "Wait" && <p className={` flex-1 `}><span className='bg-black text-white font-bold px-2'>{flag}</span></p>
+        
     );
 }
