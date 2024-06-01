@@ -1,6 +1,5 @@
 "use client"
 import {useState} from 'react';
-import Data from '../../data/testData.json';
 import stockType from '../../types/stockType';
 import calculateProfitMargin from '../../utils/calculateProfitMargin';
 import StockFlag from '../stockFlag/stockFlag';
