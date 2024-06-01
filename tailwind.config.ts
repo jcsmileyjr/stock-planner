@@ -11,6 +11,9 @@ const config: Config = {
       'laptop': '1130px',
     },
     extend: {
+      flex: {
+        '2': '1.5 1.5 0%'
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
