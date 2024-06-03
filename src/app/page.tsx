@@ -110,7 +110,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <Header />
-      <div className='grid grid-cols-1 laptop:grid-cols-3 laptop:grid-rows-2 laptop:gap-x-4 px-2 md:px-48 laptop:pl-4 laptop:pr-0'>
+      <div className='grid grid-cols-1 laptop:grid-cols-3 laptop:grid-rows-2 laptop:gap-x-4 px-2 md:px-48 laptop:px-4'>
         <ExecutiveSummary content={data} />
         <CurrentInvestments content={currentStocks} />
         <ScoutInvestments content={scoutStocks} />
