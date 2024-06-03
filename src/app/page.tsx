@@ -36,6 +36,9 @@ const refineCurrentInvestment = (data : dataType) : stockType[] => {
     }
   })
 
+  // Sort stocks by flag
+  stocks.sort((a, b) => a.flag < b.flag ? -1 : a.flag > b.flag ? 1 : 0);
+  
   return stocks;
 }
 
@@ -52,6 +55,9 @@ const refineScoutInvestment = (data : dataType) : stockType[] => {
       stocks.push(stock);
     }
   })
+
+  // Sort stocks by flag
+  stocks.sort((a, b) => a.flag < b.flag ? -1 : a.flag > b.flag ? 1 : 0);
 
   return stocks;
 }
@@ -84,9 +90,11 @@ async function calculateData () {
     const foundStock = stockPrices.find((stock:any) => stock.symbol === oldStock.symbol);
 
     if (foundStock) {
+      let flagType = getFlag(oldStock);
       return {
         ...oldStock, 
         currentPrice: oldStock.status === 'sold' ? oldStock.currentPrice : foundStock.price,
+        flag: flagType
       }
     } else {
       return oldStock
@@ -96,9 +104,47 @@ async function calculateData () {
   return revisedData;
 }
 
+const calculateTestData = () => {
+  let revisedData: dataType = {
+    initialInvestment: TestData.initialInvestment,
+    stocks: []
+  };
+
+  revisedData.stocks = TestData.stocks.map((oldStock) => {
+    return {
+      ...oldStock, 
+      flag: getFlag(oldStock)
+    }
+  }); 
+  
+  return revisedData;
+}
+
+const getFlag = (stock: stockType) => {
+  let flag: string = "";
+
+  const purchaseRatio: number = (stock.currentPrice / stock.targetSellPrice)*100;
+  const negativepurchaseRatio: number = stock.purchasedPrice - (stock.purchasedPrice * .1) ;
+  if(stock.status === "purchased") {
+      if (negativepurchaseRatio > stock.currentPrice) flag = "Dump";
+      else if (purchaseRatio > 100) flag = "Sell Now";    
+      else if (purchaseRatio >= 95) flag = "Sell Soon";
+      else flag = "Wait";
+  }
+  
+  const scoutedRatio: number = (stock.targetBuyPrice / stock.currentPrice)*100;
+  if(stock.status === "scouted") {
+      if (scoutedRatio > 100) flag = "Buy Now";
+      else if (scoutedRatio >= 97) flag = "Buy Soon";
+      else flag = "Wait";
+  }
+
+  return flag;
+}
+
 
 export default async function Home() {
-  let data = TestData // fOR TESTING    
+  let data = calculateTestData() // fOR TESTING    
   
   if(process.env.NODE_ENV !== "development"){
     data = await calculateData(); // Production
