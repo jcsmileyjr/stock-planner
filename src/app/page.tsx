@@ -2,11 +2,13 @@ import Header from './components/header/header';
 import ExecutiveSummary from './components/executiveSummary/executiveSummary';
 import CurrentInvestments from './components/currentInvestments/currentInvestments';
 import ScoutInvestments from './components/scoutInvestments/scoutInvestments';
-import TestData from './data/testData.json';
+import Footer from './components/footer/footer';
 import stockType from './types/stockType';
 import dataType from './types/dataType';
 import getStockNames  from './utils/getStockNames';
-import Footer from './components/footer/footer';
+import refineInvestments from './utils/refineInvestments';
+import getFlag from './utils/getFlag';
+import TestData from './data/testData.json';
 
 /**
  * TODO: Get stock data from a API or JSON file
@@ -20,41 +22,6 @@ import Footer from './components/footer/footer';
  * - Save investments to local storage
  * - Enable investments to be called from local storage
  */
-
-
-/**
- * Refines the current investments by filtering stocks that are purchased.
- * @param {dataType} data - The data object containing stock information.
- * @return {stockType[]} An array of stocks that are currently invested.
- */
-const refineCurrentInvestment = (data : dataType) : stockType[] => {
-  let initialStockArray: stockType[] = data.stocks;
-  let stocks: stockType[] = [];
-  initialStockArray.forEach((stock) => {
-    if (stock.status === 'purchased') {
-      stocks.push(stock);
-    }
-  })
-
-  return stocks;
-}
-
-/**
- * Filters the given data array to include only stocks with a status of 'scouted'.
- * @param {dataType} data - The data object containing an array of stocks.
- * @return {stockType[]} An array of stocks with a status of 'scouted'.
- */
-const refineScoutInvestment = (data : dataType) : stockType[] => {
-  let initialStockArray: stockType[] = data.stocks;
-  let stocks: stockType[] = [];
-  initialStockArray.forEach((stock) => {
-    if (stock.status === 'scouted') {
-      stocks.push(stock);
-    }
-  })
-
-  return stocks;
-}
 
 /**
  * Asynchronously fetches stock prices from the FinancialModelingPrep API.
@@ -84,9 +51,11 @@ async function calculateData () {
     const foundStock = stockPrices.find((stock:any) => stock.symbol === oldStock.symbol);
 
     if (foundStock) {
+      let flagType = getFlag(oldStock);
       return {
         ...oldStock, 
         currentPrice: oldStock.status === 'sold' ? oldStock.currentPrice : foundStock.price,
+        flag: flagType
       }
     } else {
       return oldStock
@@ -96,16 +65,37 @@ async function calculateData () {
   return revisedData;
 }
 
+/**
+ * Calculates the revised data by copying the initial investment and mapping over the stocks in TestData.
+ * For each stock, it adds a flag based on the result of the getFlag function.
+ *
+ * @return {dataType} The revised data object with updated flags.
+ */
+const calculateTestData = () => {
+  let revisedData: dataType = {
+    initialInvestment: TestData.initialInvestment,
+    stocks: []
+  };
+
+  revisedData.stocks = TestData.stocks.map((oldStock) => {
+    return {
+      ...oldStock, 
+      flag: getFlag(oldStock)
+    }
+  }); 
+  
+  return revisedData;
+}
 
 export default async function Home() {
-  let data = TestData // fOR TESTING    
+  let data = calculateTestData() // fOR TESTING    
   
   if(process.env.NODE_ENV !== "development"){
     data = await calculateData(); // Production
   } 
 
-  const currentStocks = await refineCurrentInvestment(data);
-  const scoutStocks = await refineScoutInvestment(data);
+  const currentStocks = await refineInvestments(data, 'purchased'); 
+  const scoutStocks = await refineInvestments(data, 'scouted'); 
 
   return (
     <main className="flex min-h-screen flex-col">
