@@ -2,11 +2,13 @@ import Header from './components/header/header';
 import ExecutiveSummary from './components/executiveSummary/executiveSummary';
 import CurrentInvestments from './components/currentInvestments/currentInvestments';
 import ScoutInvestments from './components/scoutInvestments/scoutInvestments';
-import TestData from './data/testData.json';
+import Footer from './components/footer/footer';
 import stockType from './types/stockType';
 import dataType from './types/dataType';
 import getStockNames  from './utils/getStockNames';
-import Footer from './components/footer/footer';
+import refineInvestments from './utils/refineInvestments';
+import getFlag from './utils/getFlag';
+import TestData from './data/testData.json';
 
 /**
  * TODO: Get stock data from a API or JSON file
@@ -20,47 +22,6 @@ import Footer from './components/footer/footer';
  * - Save investments to local storage
  * - Enable investments to be called from local storage
  */
-
-
-/**
- * Refines the current investments by filtering stocks that are purchased.
- * @param {dataType} data - The data object containing stock information.
- * @return {stockType[]} An array of stocks that are currently invested.
- */
-const refineCurrentInvestment = (data : dataType) : stockType[] => {
-  let initialStockArray: stockType[] = data.stocks;
-  let stocks: stockType[] = [];
-  initialStockArray.forEach((stock) => {
-    if (stock.status === 'purchased') {
-      stocks.push(stock);
-    }
-  })
-
-  // Sort stocks by flag
-  stocks.sort((a, b) => a.flag < b.flag ? -1 : a.flag > b.flag ? 1 : 0);
-  
-  return stocks;
-}
-
-/**
- * Filters the given data array to include only stocks with a status of 'scouted'.
- * @param {dataType} data - The data object containing an array of stocks.
- * @return {stockType[]} An array of stocks with a status of 'scouted'.
- */
-const refineScoutInvestment = (data : dataType) : stockType[] => {
-  let initialStockArray: stockType[] = data.stocks;
-  let stocks: stockType[] = [];
-  initialStockArray.forEach((stock) => {
-    if (stock.status === 'scouted') {
-      stocks.push(stock);
-    }
-  })
-
-  // Sort stocks by flag
-  stocks.sort((a, b) => a.flag < b.flag ? -1 : a.flag > b.flag ? 1 : 0);
-
-  return stocks;
-}
 
 /**
  * Asynchronously fetches stock prices from the FinancialModelingPrep API.
@@ -104,6 +65,12 @@ async function calculateData () {
   return revisedData;
 }
 
+/**
+ * Calculates the revised data by copying the initial investment and mapping over the stocks in TestData.
+ * For each stock, it adds a flag based on the result of the getFlag function.
+ *
+ * @return {dataType} The revised data object with updated flags.
+ */
 const calculateTestData = () => {
   let revisedData: dataType = {
     initialInvestment: TestData.initialInvestment,
@@ -120,29 +87,6 @@ const calculateTestData = () => {
   return revisedData;
 }
 
-const getFlag = (stock: stockType) => {
-  let flag: string = "";
-
-  const purchaseRatio: number = (stock.currentPrice / stock.targetSellPrice)*100;
-  const negativepurchaseRatio: number = stock.purchasedPrice - (stock.purchasedPrice * .1) ;
-  if(stock.status === "purchased") {
-      if (negativepurchaseRatio > stock.currentPrice) flag = "Dump";
-      else if (purchaseRatio > 100) flag = "Sell Now";    
-      else if (purchaseRatio >= 95) flag = "Sell Soon";
-      else flag = "Wait";
-  }
-  
-  const scoutedRatio: number = (stock.targetBuyPrice / stock.currentPrice)*100;
-  if(stock.status === "scouted") {
-      if (scoutedRatio > 100) flag = "Buy Now";
-      else if (scoutedRatio >= 97) flag = "Buy Soon";
-      else flag = "Wait";
-  }
-
-  return flag;
-}
-
-
 export default async function Home() {
   let data = calculateTestData() // fOR TESTING    
   
@@ -150,8 +94,8 @@ export default async function Home() {
     data = await calculateData(); // Production
   } 
 
-  const currentStocks = await refineCurrentInvestment(data);
-  const scoutStocks = await refineScoutInvestment(data);
+  const currentStocks = await refineInvestments(data, 'purchased'); 
+  const scoutStocks = await refineInvestments(data, 'scouted'); 
 
   return (
     <main className="flex min-h-screen flex-col">
