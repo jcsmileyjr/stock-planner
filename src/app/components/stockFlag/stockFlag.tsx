@@ -33,12 +33,12 @@ export default function StockFlag ({stock}: {stock: stockType}) {
         else flag = "Wait";
     }
     return (
-        flag === "Sell Now" && <p className={` flex-1 `}><span className='bg-green-200 text-black font-bold px-2'>{flag}</span></p>
-        || flag === "Sell Soon" && <p className={` flex-1 `}><span className='bg-orange-200 text-black font-bold px-2'>{flag}</span></p>
-        || flag === "Buy Now" && <p className={` flex-1 `}><span className='bg-green-200 text-black font-bold px-2'>{flag}</span></p>
-        || flag === "Buy Soon" && <p className={` flex-1 `}><span className='bg-orange-200 text-black font-bold px-2'>{flag}</span></p>
-        || flag === "Dump" && <p className={` flex-1 `}><span className='bg-red-700 text-white font-bold px-2'>{flag}</span></p>
-        || flag === "Wait" && <p className={` flex-1 `}><span className='bg-black text-white font-bold px-2'>{flag}</span></p>
+        flag === "Sell Now" && <p className={` flex-1 flex laptop:block `}><span className='bg-green-200 text-black font-bold px-2 flex-1'>{flag}</span></p>
+        || flag === "Sell Soon" && <p className={` flex-1 flex laptop:block `}><span className='bg-orange-200 text-black font-bold px-2 flex-1'>{flag}</span></p>
+        || flag === "Buy Now" && <p className={` flex-1 flex laptop:block `}><span className='bg-green-200 text-black font-bold px-2 flex-1'>{flag}</span></p>
+        || flag === "Buy Soon" && <p className={` flex-1 flex laptop:block `}><span className='bg-orange-200 text-black font-bold px-2 flex-1'>{flag}</span></p>
+        || flag === "Dump" && <p className={` flex-1 flex laptop:block `}><span className='bg-red-700 text-white font-bold px-2 flex-1'>{flag}</span></p>
+        || flag === "Wait" && <p className={` flex-1 flex laptop:block flex laptop:block`}><span className='bg-black text-white font-bold px-2 flex-1'>{flag}</span></p>
         
     );
 }
