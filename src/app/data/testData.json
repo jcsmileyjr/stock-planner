@@ -39,7 +39,7 @@
         },
         {
             "symbol": "FIVN",
-            "name": "Five9 Inc",
+            "name": "Shouldn't be Five",
             "status": "purchased",
             "currentPrice": 47.288,
             "targetSellPrice": 77,

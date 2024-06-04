@@ -55,6 +55,7 @@ async function calculateData () {
       let flagType = getFlag(oldStock);
       return {
         ...oldStock, 
+        name: foundStock.name,
         currentPrice: oldStock.status === 'sold' ? getParsedDollarAmount(oldStock.currentPrice) : getParsedDollarAmount(foundStock.price),
         purchasedPrice: getParsedDollarAmount(oldStock.purchasedPrice),
         flag: flagType
