@@ -7,6 +7,7 @@ import stockType from './types/stockType';
 import dataType from './types/dataType';
 import getStockNames  from './utils/getStockNames';
 import refineInvestments from './utils/refineInvestments';
+import getParsedDollarAmount from './utils/getParsedDollarAmount';
 import getFlag from './utils/getFlag';
 import TestData from './data/testData.json';
 
@@ -54,7 +55,9 @@ async function calculateData () {
       let flagType = getFlag(oldStock);
       return {
         ...oldStock, 
-        currentPrice: oldStock.status === 'sold' ? oldStock.currentPrice : foundStock.price,
+        name: foundStock.name,
+        currentPrice: oldStock.status === 'sold' ? getParsedDollarAmount(oldStock.currentPrice) : getParsedDollarAmount(foundStock.price),
+        purchasedPrice: getParsedDollarAmount(oldStock.purchasedPrice),
         flag: flagType
       }
     } else {
@@ -80,6 +83,8 @@ const calculateTestData = () => {
   revisedData.stocks = TestData.stocks.map((oldStock) => {
     return {
       ...oldStock, 
+      currentPrice: getParsedDollarAmount(oldStock.currentPrice),
+      purchasedPrice: getParsedDollarAmount(oldStock.purchasedPrice),
       flag: getFlag(oldStock)
     }
   }); 
