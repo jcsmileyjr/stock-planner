@@ -3,6 +3,7 @@ import Header from "../components/header/header";
 import { InvestmentProvider, useInvestments } from '../contexts/stocksContext';
 import InputText from "../components/inputText/inputText";
 import InputNumber from "../components/inputNumber/inputNumber";
+import InputStatus from "../components/inputStatus/inputStatus";
 
 export default function PurchaseInvestments () {
     return (
@@ -12,6 +13,7 @@ export default function PurchaseInvestments () {
             <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
                 <InvestmentProvider>
                     <InputText label="Symbol" property="symbol" />
+                    <InputStatus label="Status" property="status" />
                     <InputNumber label="Target Sell Price" property="targetSellPrice" />
                     <InputNumber label="Target Buy Price" property="targetBuyPrice" />
                     <InputNumber label="Purchased Price" property="purchasedPrice" />

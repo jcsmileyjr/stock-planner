@@ -12,6 +12,8 @@ export default function updateState(e:any, property:string, state:any, dispatch:
         content.targetBuyPrice = e.target.value;
     } else if (property === "purchasedPrice"){
         content.purchasedPrice = e.target.value;
+    } else if (property === "status"){
+        content.status = e.target.value;
     }
     dispatch({type:"currentInvestment", content: content});
 }
