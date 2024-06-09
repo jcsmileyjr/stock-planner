@@ -13,7 +13,7 @@ export default function PurchaseInvestments () {
                 <InputNumber label="Target Sell Price" property="targetSellPrice" />
                 <InputNumber label="Target Buy Price" property="targetBuyPrice" />
                 <InputNumber label="Purchased Price" property="purchasedPrice" />
-                <InputNumber label="Quanity" property="quanity" />
+                <InputNumber label="Quantity" property="quantity" />
             </InvestmentProvider>
             <h1>hello</h1>
         </main>
