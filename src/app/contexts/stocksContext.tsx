@@ -5,7 +5,7 @@ import genericStock from '../data/genericStock.json'
 import * as React from 'react'
 import stockType from '../types/stockType';
 
-type Action = { type: 'purchaseInvestment', content: string, property: string } | 
+type Action = { type: 'purchaseInvestment', content: stockType } | 
 	{ type: 'saleInvestment', content: string, property: string  } | 
 	{ type: 'scoutInvestment', content: string, property: string  } | 
 	{ type: 'currentInvestment', content: stockType };
@@ -25,7 +25,8 @@ const InvestmentStateContext = React.createContext<
 function investmentReducer(state: State, action: Action) {
 	switch (action.type) {
 		case 'purchaseInvestment': {
-			return { investment: state.investment}
+			console.log("currentInvestment", action.content)
+			return { investment: action.content}
 		}
 		case 'saleInvestment': {
 			return { investment: state.investment}
@@ -34,7 +35,7 @@ function investmentReducer(state: State, action: Action) {
 			return { investment: state.investment}
 		}
 		case 'currentInvestment': {
-			console.log("currentInvestment", action.content)
+			// console.log("currentInvestment", action.content)
 			return { investment: action.content}
 		}
 		default: {

@@ -1,11 +1,16 @@
 "use client"
+import { useState} from 'react';
+import Link from 'next/link';
 import Header from "../components/header/header";
 import { InvestmentProvider, useInvestments } from '../contexts/stocksContext';
 import InputText from "../components/inputText/inputText";
 import InputNumber from "../components/inputNumber/inputNumber";
 import InputStatus from "../components/inputStatus/inputStatus";
+import SubmitButton from '../components/submitbutton/submitButton';
 
 export default function PurchaseInvestments () {
+    const [password, setPassword] = useState("");
+
     return (
         <main className="flex min-h-screen flex-col mx-4">
             <Header />
@@ -18,6 +23,21 @@ export default function PurchaseInvestments () {
                     <InputNumber label="Target Buy Price" property="targetBuyPrice" />
                     <InputNumber label="Purchased Price" property="purchasedPrice" />
                     <InputNumber label="Quantity" property="quantity" />
+                    <div className="flex flex-col mb-2">
+                        <label htmlFor="password" className="font-bold">Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            value={password}
+                            aria-label="password"
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="border-2 border-slate-500 rounded-md p-2"
+                            />
+                    </div>
+                    <SubmitButton pwd={password} />
+                    <div className='flex justify-center align-center mt-4'>
+                        <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>
+                    </div>
                 </InvestmentProvider>
             </section>
         </main>
