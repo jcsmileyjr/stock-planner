@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import connectDb from './db';
 import Investment from '../models/Investment';
+import TestData from '../data/testData.json'
 
 // GET /api/parts
 export const GET = async () => {
@@ -8,6 +9,11 @@ export const GET = async () => {
     await connectDb();
 
     const investments = await Investment.find({});
+
+    // This works to save data
+    // const investments = new Investment(TestData)
+    // await investments.save()
+
     console.log("testing", investments);
     return NextResponse.json(investments);
     } catch (error) {

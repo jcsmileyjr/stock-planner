@@ -67,7 +67,6 @@ const investmentSchema = new Schema({
     
         name: {
             type: String,
-            required: true,
         },  
     
         status: {
@@ -77,7 +76,6 @@ const investmentSchema = new Schema({
     
         currentPrice: { 
             type: Number,
-            required: true,
         },
     
         targetSellPrice: {
@@ -92,12 +90,10 @@ const investmentSchema = new Schema({
     
         purchasedPrice: {
             type: Number,
-            required: true,
         },
     
         flag: {
             type: String,
-            required: true,
         },
     
         quantity: {
@@ -107,7 +103,6 @@ const investmentSchema = new Schema({
     
         profitMargin: {
             type: Number,
-            required: true,
         }
         }
     ],
