@@ -2,7 +2,7 @@ import dataType from "../types/dataType";
 import getStockPrices from "./getStockPrices";
 import getFlag from "./getFlag";
 import getParsedDollarAmount from "./getParsedDollarAmount";
-import TestData from "../data/testData.json";
+//import TestData from "../data/testData.json";
 import stockType from '../types/stockType';
 /**
  * Asynchronously calculates the revised data by fetching stock prices and updating the current price for each stock.
@@ -10,6 +10,8 @@ import stockType from '../types/stockType';
  * @return {Promise<dataType>} A Promise that resolves to the revised data object with updated current prices.
  */
 export default async function calculateData () {
+    const content = await fetch('http://localhost:3000/config').then((res) => res.json())
+    const TestData = content[0]
     let revisedData: dataType = {
         initialInvestment: TestData.initialInvestment,
         stocks: []
@@ -35,7 +37,7 @@ export default async function calculateData () {
             }
         })
     } else {
-        revisedData.stocks = TestData.stocks.map((oldStock) => {
+        revisedData.stocks = TestData.stocks.map((oldStock: stockType) => {
             return {
             ...oldStock, 
             currentPrice: getParsedDollarAmount(oldStock.currentPrice),

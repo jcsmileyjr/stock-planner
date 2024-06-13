@@ -14,7 +14,7 @@ export const GET = async () => {
     // const investments = new Investment(TestData)
     // await investments.save()
 
-    console.log("testing", investments);
+    console.log("testing", investments[0]);
     return NextResponse.json(investments);
     } catch (error) {
     console.error("GET request failed", error);
