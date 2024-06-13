@@ -4,17 +4,15 @@ import getFlag from "./getFlag";
 import getParsedDollarAmount from "./getParsedDollarAmount";
 //import TestData from "../data/testData.json";
 import stockType from '../types/stockType';
+import getData from "./getData";
 /**
  * Asynchronously calculates the revised data by fetching stock prices and updating the current price for each stock.
  * If the stock has been sold, then price is not updated.
  * @return {Promise<dataType>} A Promise that resolves to the revised data object with updated current prices.
  */
 export default async function calculateData () {
-    let url = 'http://localhost:3000/config'
-    if (process.env.NODE_ENV !== "development") {
-        url = 'https://smileyinvestmentplanner.netlify.app/config'
-    }
-    const content = await fetch(url).then((res) => res.json())
+    const response = await getData();
+    const content = await response.json();
     const TestData = content[0]
     let revisedData: dataType = {
         initialInvestment: TestData.initialInvestment,
