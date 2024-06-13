@@ -12,7 +12,7 @@ const saveData = async (data : StockType) => {
         content.stocks.push(data); // Add new stock to array
 
         const investments = new Investment(content); // Create new investment with updated investment information
-        console.log("investments created in saved data", investments);
+        //console.log("investments created in saved data", investments);
         await investments.save(); // Save updated investment
     } catch (error) {
         console.error('Error saving data:', error);

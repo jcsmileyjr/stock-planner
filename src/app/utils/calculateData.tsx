@@ -10,7 +10,11 @@ import stockType from '../types/stockType';
  * @return {Promise<dataType>} A Promise that resolves to the revised data object with updated current prices.
  */
 export default async function calculateData () {
-    const content = await fetch('http://localhost:3000/config').then((res) => res.json())
+    let url = 'http://localhost:3000/config'
+    if (process.env.NODE_ENV !== "development") {
+        url = 'https://smileyinvestmentplanner.netlify.app/config'
+    }
+    const content = await fetch(url).then((res) => res.json())
     const TestData = content[0]
     let revisedData: dataType = {
         initialInvestment: TestData.initialInvestment,
