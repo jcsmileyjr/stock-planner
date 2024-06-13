@@ -35,9 +35,13 @@ export default function StockToggle({stock}: {stock: stockType}) {
                     {stock['status'] === 'scouted' &&
                         <p  className={` flex-1 `}>${stock['targetBuyPrice']}</p>
                     } 
-                    <p  className={`hidden laptop:block flex-1 font-bold laptop:font-normal`}>${stock['purchasedPrice']}</p> 
-                    <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">${calculateProfitMargin(stock) }</p>  
-                    <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">${stock['quantity']}</p>
+                    {stock['status'] === 'purchased' && 
+                        <>
+                            <p  className={`hidden laptop:block flex-1 font-bold laptop:font-normal`}>${stock['purchasedPrice']}</p> 
+                            <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">${calculateProfitMargin(stock) }</p>  
+                            <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">${stock['quantity']}</p>
+                        </>
+                    }
                     <StockFlag stock={stock} key={`${stock['symbol']}-flag`} />                 
                 </summary>
                 {
