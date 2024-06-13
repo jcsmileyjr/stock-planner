@@ -1,4 +1,7 @@
 import { Schema, model, models } from "mongoose";
+import stockType from "../types/stockType";
+import Stock from './Stock';
+import StockType from "../types/stockType";
 
 const stocksSchema = new Schema({
     symbol: {
@@ -58,54 +61,7 @@ const investmentSchema = new Schema({
         type: Number,
         required: true,
     },
-    stocks: [
-        {        
-        symbol: {
-            type: String,
-            required: true,
-        },
-    
-        name: {
-            type: String,
-        },  
-    
-        status: {
-            type: String,
-            required: true,
-        },  
-    
-        currentPrice: { 
-            type: Number,
-        },
-    
-        targetSellPrice: {
-            type: Number,
-            required: true,
-        },  
-    
-        targetBuyPrice: {
-            type: Number,
-            required: true,
-        },
-    
-        purchasedPrice: {
-            type: Number,
-        },
-    
-        flag: {
-            type: String,
-        },
-    
-        quantity: {
-            type: Number,
-            required: true,
-        },
-    
-        profitMargin: {
-            type: Number,
-        }
-        }
-    ],
+    stocks: [stocksSchema],
 });
 
 const Investment = models.Investment || model("Investment", investmentSchema);
