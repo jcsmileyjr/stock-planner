@@ -27,27 +27,18 @@ export default function StockToggle({stock}: {stock: stockType}) {
         <div className="flex flex-row">
             <details className='w-full my-2' open={openStock} onToggle={() => setOpenStock(!openStock)}>
                 <summary className='flex flex-row'>
-                    {Object.keys(stock).map((key) => {
-                        if((key === 'purchasedPrice' || key === 'quantity' || key === 'profitMargin') && stock['status'] === 'purchased') {
-                            return (
-                                <p key={`${stock['symbol']}-${key}`} className="hidden laptop:block flex-1 font-bold laptop:font-normal">{key === 'quantity' ? "#":"$"}{key === 'profitMargin' ? calculateProfitMargin(stock) : stock[key]}</p>
-                            )
-                        } else if (key === 'symbol') {
-                            return (
-                                <p key={`${stock['symbol']}-${key}`} className={`flex-1 font-bold`} >{stock[key]}</p>
-                            )
-                        } else if (key === 'currentPrice') {
-                            return (
-                                <p key={`${stock['symbol']}-${key}`} className={`flex-1 `}>${stock[key]}</p>
-                            )
-                        } else if (key === 'flag') {
-                            return <StockFlag stock={stock} key={`${stock['symbol']}-${key}`} />
-                        } else if (key === 'flag' || (key === 'targetSellPrice' && stock['status'] === 'purchased') || (key === 'targetBuyPrice' && stock['status'] === 'scouted')) {
-                            return (
-                                <p key={`${stock['symbol']}-${key}`} className={` flex-1 `}>{key === 'targetSellPrice' || key === 'targetBuyPrice' ? '$' : ''}{stock[key]}</p>
-                            )
-                        }
-                    })}
+                    <p className="flex-1 font-bold ">{stock['symbol']}</p>
+                    <p  className={`flex-1 `}>${stock['currentPrice']}</p>
+                    {stock['status'] === 'purchased' &&
+                        <p  className={` flex-1 `}>${stock['targetSellPrice']}</p>
+                    }
+                    {stock['status'] === 'scouted' &&
+                        <p  className={` flex-1 `}>${stock['targetBuyPrice']}</p>
+                    } 
+                    <p  className={`hidden laptop:block flex-1 font-bold laptop:font-normal`}>${stock['purchasedPrice']}</p> 
+                    <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">${calculateProfitMargin(stock) }</p>  
+                    <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">${stock['quantity']}</p>
+                    <StockFlag stock={stock} key={`${stock['symbol']}-flag`} />                 
                 </summary>
                 {
                     Object.keys(stock).map((key) => {
