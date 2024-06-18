@@ -1,15 +1,19 @@
-// 'use server'
-// import { redirect } from 'next/navigation';
-// import { revalidatePath } from 'next/cache';
-import dataType from "../types/dataType";
-import { NextResponse } from "next/server";
-import connectDb from '../config/db';
-import Investment from '../models/Investment';
+import editData from "./editData";
 import saveData from "./saveData";
 const submitInvestment = async (type: string, pwd: string, state: any, dispatch: any, router: any) => {
     if (pwd === process.env.NEXT_PUBLIC_PASSWORD) { 
         let data = state.investment;
-        await saveData(data);
+        if ( type === 'purchaseInvestment') {
+            console.log("submitInvestment(): purchase stock");
+            await saveData(data);
+        } else if (type === 'editInvestment') {
+            console.log("submitInvestment(): update stock")
+            //await editData(data);
+        } else {
+            console.log("submitInvestment(): wrong type")
+        }
+
+
         dispatch({ type: type, content: data });
         router.push('/')
     } else {
