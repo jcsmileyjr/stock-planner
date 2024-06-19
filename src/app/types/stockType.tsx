@@ -1,4 +1,5 @@
 export default interface StockType {
+    [key: string]: string | number;
     symbol: string
     name: string
     status: string
