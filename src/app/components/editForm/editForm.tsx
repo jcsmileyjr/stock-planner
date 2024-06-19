@@ -31,8 +31,8 @@ export default function EditForm ({content}: {content: dataType}) {
         <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
             <InvestmentProvider>
                 <InputPickStock label="Pick a Stock" stocks={content.stocks} getStock={updateStock} />
-                <InputText label="Symbol" property="symbol" />
-                <InputStatus label="Status" property="status"/>
+                <InputText label="Symbol" property="symbol" data={currentStock["symbol"]} />
+                <InputStatus label="Status" property="status" data={currentStock["status"]} />
                 <InputNumber label="Target Sell Price" property="targetSellPrice" />
                 <InputNumber label="Target Buy Price" property="targetBuyPrice" />
                 <InputNumber label="Purchased Price" property="purchasedPrice" />
