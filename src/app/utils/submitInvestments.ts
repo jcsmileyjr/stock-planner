@@ -4,15 +4,12 @@ const submitInvestment = async (type: string, pwd: string, state: any, dispatch:
     if (pwd === process.env.NEXT_PUBLIC_PASSWORD) { 
         let data = state.investment;
         if ( type === 'purchaseInvestment') {
-            console.log("submitInvestment(): purchase stock");
             await saveData(data);
         } else if (type === 'editInvestment') {
-            console.log("submitInvestment(): update stock")
-            //await editData(data);
+            await editData(data);
         } else {
             console.log("submitInvestment(): wrong type")
         }
-
 
         dispatch({ type: type, content: data });
         router.push('/')

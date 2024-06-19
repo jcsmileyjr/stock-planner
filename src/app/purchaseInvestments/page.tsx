@@ -17,12 +17,12 @@ export default function PurchaseInvestments () {
             <h2 className="uppercase text-xl laptop:text-2xl font-bold underline text-center mb-4">Purchase Investment Setup</h2>
             <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
                 <InvestmentProvider>
-                    <InputText label="Symbol" property="symbol" />
-                    <InputStatus label="Status" property="status" />
-                    <InputNumber label="Target Sell Price" property="targetSellPrice" />
-                    <InputNumber label="Target Buy Price" property="targetBuyPrice" />
-                    <InputNumber label="Purchased Price" property="purchasedPrice" />
-                    <InputNumber label="Quantity" property="quantity" />
+                    <InputText label="Symbol" property="symbol" data="" />
+                    <InputStatus label="Status" property="status" data="" />
+                    <InputNumber label="Target Sell Price" property="targetSellPrice" data={0} />
+                    <InputNumber label="Target Buy Price" property="targetBuyPrice" data={0} />
+                    <InputNumber label="Purchased Price" property="purchasedPrice" data={0} />
+                    <InputNumber label="Quantity" property="quantity" data={0} />
                     <div className="flex flex-col mb-2">
                         <label htmlFor="password" className="font-bold">Password</label>
                         <input

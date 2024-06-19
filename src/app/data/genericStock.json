@@ -5,7 +5,7 @@
     "currentPrice": 0,
     "targetSellPrice": 0,
     "targetBuyPrice": 0,
-    "purchasedPrice": 9,
+    "purchasedPrice": 0,
     "flag": "generic",
     "quantity": 0,
     "profitMargin": 0

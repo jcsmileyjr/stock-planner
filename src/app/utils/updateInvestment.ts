@@ -1,6 +1,5 @@
 
-export default function updateState(e:any, property:string, state:any, dispatch:any, setter: any) {
-    setter(e.target.value);
+export default function updateState(e:any, property:string, state:any, dispatch:any) {
     let content = state.investment;
     if (property === "symbol"){
         content.symbol = e.target.value;

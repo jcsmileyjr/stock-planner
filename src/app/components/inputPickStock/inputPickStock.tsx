@@ -1,16 +1,13 @@
 "use client"
 import { useState} from 'react';
-import { useInvestments } from "@/app/contexts/stocksContext";
 import StockType from '@/app/types/stockType';
 
 export default function InputPickStock ({label, stocks, getStock}: {label: string, stocks: StockType[], getStock: Function}) {
-    const { state, dispatch } = useInvestments();
     const [value, setValue] = useState("");
 
     const updateStock = (stockSymbol: string) => {
         getStock(stockSymbol);
         setValue(stockSymbol);
-        console.log("inputPickStock stockSymbol", stockSymbol);
     }
 
     return (

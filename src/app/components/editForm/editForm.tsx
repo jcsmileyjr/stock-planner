@@ -18,10 +18,8 @@ export default function EditForm ({content}: {content: dataType}) {
     const [currentStock, setCurrentStock] = useState(genericStock as stockType);
 
     const updateStock = (symbol: string) => {
-        // console.log("updateStock symbol", symbol);
         setCurrentStockSymbol(symbol);
         const stockIndex: number = content.stocks.findIndex((stock: stockType) => stock.symbol === symbol);
-        // console.log("updateStock stock", content.stocks[stockIndex]);
         if(stockIndex !== -1) {
             setCurrentStock(content.stocks[stockIndex]);
         }
@@ -33,10 +31,10 @@ export default function EditForm ({content}: {content: dataType}) {
                 <InputPickStock label="Pick a Stock" stocks={content.stocks} getStock={updateStock} />
                 <InputText label="Symbol" property="symbol" data={currentStock["symbol"]} />
                 <InputStatus label="Status" property="status" data={currentStock["status"]} />
-                <InputNumber label="Target Sell Price" property="targetSellPrice" />
-                <InputNumber label="Target Buy Price" property="targetBuyPrice" />
-                <InputNumber label="Purchased Price" property="purchasedPrice" />
-                <InputNumber label="Quantity" property="quantity" />
+                <InputNumber label="Target Sell Price" property="targetSellPrice" data={currentStock["targetSellPrice"]} />
+                <InputNumber label="Target Buy Price" property="targetBuyPrice" data={currentStock["targetBuyPrice"]} />
+                <InputNumber label="Purchased Price" property="purchasedPrice" data={currentStock["purchasedPrice"]} />
+                <InputNumber label="Quantity" property="quantity" data={currentStock["quantity"]} />
                 <div className="flex flex-col mb-2">
                     <label htmlFor="password" className="font-bold">Password</label>
                     <input

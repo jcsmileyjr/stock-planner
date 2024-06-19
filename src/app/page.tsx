@@ -8,7 +8,6 @@ import calculateData from './utils/calculateData';
 
 export default async function Home() {
   let data = await calculateData();
-
   const currentStocks = await refineInvestments(data, 'purchased'); 
   const scoutStocks = await refineInvestments(data, 'scouted'); 
 
