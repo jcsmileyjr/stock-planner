@@ -25,6 +25,12 @@ export default function EditForm ({content}: {content: dataType}) {
         }
     }
 
+    const cleanUp = () => {
+        setPassword("");
+        setCurrentStockSymbol("");
+        setCurrentStock(genericStock as stockType);
+    }
+
     return (
         <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
             <InvestmentProvider>
@@ -46,7 +52,7 @@ export default function EditForm ({content}: {content: dataType}) {
                         className="border-2 border-slate-500 rounded-md p-2"
                         />
                 </div>
-                <SubmitButton pwd={password} type="editInvestment" />
+                <SubmitButton pwd={password} type="editInvestment" cleanUp={cleanUp} />
                 <div className='flex justify-center align-center mt-4'>
                     <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>
                 </div>

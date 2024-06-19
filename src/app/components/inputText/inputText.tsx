@@ -8,6 +8,7 @@ export default function InputText ({label, property, data}: {label: string, prop
 
     useEffect(() => {
         setContent(data);
+        updateState(data, property, state, dispatch);
     }, [data]);
 
     return (
@@ -18,7 +19,7 @@ export default function InputText ({label, property, data}: {label: string, prop
                 name={label}
                 value={content}
                 aria-label={label}
-                onChange={(e) => {updateState(e, property, state, dispatch), setContent(e.target.value)}}
+                onChange={(e) => {updateState(e.target.value, property, state, dispatch), setContent(e.target.value)}}
                 className="border-2 border-slate-500 rounded-md p-2"
             />
         </div>

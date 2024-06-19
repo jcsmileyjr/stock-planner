@@ -8,6 +8,7 @@ export default function InputNumber ({label, property, data}: {label: string, pr
     
     useEffect(() => {
         setValue(String(data));
+        updateState(data, property, state, dispatch);
     }, [data]);
 
     return (
@@ -18,7 +19,7 @@ export default function InputNumber ({label, property, data}: {label: string, pr
                 name={label}
                 value={value}
                 aria-label={label}
-                onChange={(e) => {updateState(e, property, state, dispatch), setValue(e.target.value)}}
+                onChange={(e) => {updateState(e.target.value, property, state, dispatch), setValue(e.target.value)}}
                 className="border-2 border-slate-500 rounded-md p-1"
             />
         </div>

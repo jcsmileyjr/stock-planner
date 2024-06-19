@@ -11,6 +11,10 @@ import SubmitButton from '../components/submitbutton/submitButton';
 export default function PurchaseInvestments () {
     const [password, setPassword] = useState("");
 
+    const resetPassword = () => {
+        setPassword("");
+    }
+
     return (
         <main className="flex min-h-screen flex-col mx-4">
             <Header />
@@ -34,7 +38,7 @@ export default function PurchaseInvestments () {
                             className="border-2 border-slate-500 rounded-md p-2"
                             />
                     </div>
-                    <SubmitButton pwd={password} type="purchaseInvestment" />
+                    <SubmitButton pwd={password} type="purchaseInvestment" cleanUp={resetPassword} />
                     <div className='flex justify-center align-center mt-4'>
                         <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>
                     </div>

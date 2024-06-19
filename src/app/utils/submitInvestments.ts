@@ -1,6 +1,6 @@
 import editData from "./editData";
 import saveData from "./saveData";
-const submitInvestment = async (type: string, pwd: string, state: any, dispatch: any, router: any) => {
+const submitInvestment = async (type: string, pwd: string, state: any, dispatch: any, router: any, cleanUp: Function) => {
     if (pwd === process.env.NEXT_PUBLIC_PASSWORD) { 
         let data = state.investment;
         if ( type === 'purchaseInvestment') {
@@ -10,13 +10,14 @@ const submitInvestment = async (type: string, pwd: string, state: any, dispatch:
         } else {
             console.log("submitInvestment(): wrong type")
         }
-
+        
         dispatch({ type: type, content: data });
         router.push('/')
     } else {
         // Throw error
         console.log("Wrong password")
     }
+    cleanUp(); // Clean up state like the password
 }
 
 export default submitInvestment;
