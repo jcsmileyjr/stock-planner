@@ -9,6 +9,7 @@ export default function InputStatus ({label, property, data = "scouted"}: {label
     useEffect(() => {
         setValue(data);
         updateState(data, property, state, dispatch);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
 
     return (

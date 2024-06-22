@@ -9,6 +9,7 @@ export default function InputNumber ({label, property, data}: {label: string, pr
     useEffect(() => {
         setValue(String(data));
         updateState(data, property, state, dispatch);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
 
     return (

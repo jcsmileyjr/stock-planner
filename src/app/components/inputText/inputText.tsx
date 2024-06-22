@@ -9,6 +9,7 @@ export default function InputText ({label, property, data}: {label: string, prop
     useEffect(() => {
         setContent(data);
         updateState(data, property, state, dispatch);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data]);
 
     return (
