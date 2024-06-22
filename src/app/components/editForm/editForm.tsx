@@ -14,6 +14,7 @@ import genericStock from '../../data/genericStock.json'
 
 export default function EditForm ({content}: {content: dataType}) {
     const [password, setPassword] = useState("");
+    const [passwordError, setPasswordError] = useState(false);
     const [currentStockSymbol, setCurrentStockSymbol] = useState("");
     const [currentStock, setCurrentStock] = useState(genericStock as stockType);
 
@@ -25,10 +26,15 @@ export default function EditForm ({content}: {content: dataType}) {
         }
     }
 
-    const cleanUp = () => {
+    const cleanUp = (results: boolean) => {
         setPassword("");
         setCurrentStockSymbol("");
         setCurrentStock(genericStock as stockType);
+        if (results) {
+            setPasswordError(true);
+        } else {
+            setPasswordError(false);
+        }
     }
 
     return (
@@ -52,7 +58,7 @@ export default function EditForm ({content}: {content: dataType}) {
                         className="border-2 border-slate-500 rounded-md p-2"
                         />
                 </div>
-                <SubmitButton pwd={password} type="editInvestment" cleanUp={cleanUp} />
+                <SubmitButton pwd={password} type="editInvestment" cleanUp={cleanUp} error={passwordError} />
                 <div className='flex justify-center align-center mt-4'>
                     <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>
                 </div>
