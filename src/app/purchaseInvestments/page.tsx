@@ -10,9 +10,15 @@ import SubmitButton from '../components/submitbutton/submitButton';
 
 export default function PurchaseInvestments () {
     const [password, setPassword] = useState("");
+    const [passwordError, setPasswordError] = useState(false);
 
-    const resetPassword = () => {
+    const resetPassword = (results: boolean) => {
         setPassword("");
+        if (results) {
+            setPasswordError(true);
+        } else {
+            setPasswordError(false);
+        }
     }
 
     return (
@@ -38,7 +44,7 @@ export default function PurchaseInvestments () {
                             className="border-2 border-slate-500 rounded-md p-2"
                             />
                     </div>
-                    <SubmitButton pwd={password} type="purchaseInvestment" cleanUp={resetPassword} />
+                    <SubmitButton pwd={password} type="purchaseInvestment" cleanUp={resetPassword} error={passwordError} />
                     <div className='flex justify-center align-center mt-4'>
                         <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>
                     </div>
