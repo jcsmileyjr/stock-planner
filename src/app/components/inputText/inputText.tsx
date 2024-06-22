@@ -1,10 +1,15 @@
 "use client"
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import { useInvestments } from "@/app/contexts/stocksContext"
 import updateState from '@/app/utils/updateInvestment';
-export default function InputText ({label, property}: {label: string, property: string}) {
+export default function InputText ({label, property, data}: {label: string, property: string, data: string}) {
     const { state, dispatch } = useInvestments();
-    const [value, setValue] = useState("");
+    const [content, setContent] = useState("");
+
+    useEffect(() => {
+        setContent(data);
+        updateState(data, property, state, dispatch);
+    }, [data]);
 
     return (
         <div className="flex flex-col mb-2">    
@@ -12,9 +17,9 @@ export default function InputText ({label, property}: {label: string, property: 
             <input
                 type="text"
                 name={label}
-                value={value}
+                value={content}
                 aria-label={label}
-                onChange={(e) => updateState(e, property, state, dispatch, setValue)}
+                onChange={(e) => {updateState(e.target.value, property, state, dispatch), setContent(e.target.value)}}
                 className="border-2 border-slate-500 rounded-md p-2"
             />
         </div>

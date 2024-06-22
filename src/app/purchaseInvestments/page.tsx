@@ -11,18 +11,22 @@ import SubmitButton from '../components/submitbutton/submitButton';
 export default function PurchaseInvestments () {
     const [password, setPassword] = useState("");
 
+    const resetPassword = () => {
+        setPassword("");
+    }
+
     return (
         <main className="flex min-h-screen flex-col mx-4">
             <Header />
             <h2 className="uppercase text-xl laptop:text-2xl font-bold underline text-center mb-4">Purchase Investment Setup</h2>
             <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
                 <InvestmentProvider>
-                    <InputText label="Symbol" property="symbol" />
-                    <InputStatus label="Status" property="status" />
-                    <InputNumber label="Target Sell Price" property="targetSellPrice" />
-                    <InputNumber label="Target Buy Price" property="targetBuyPrice" />
-                    <InputNumber label="Purchased Price" property="purchasedPrice" />
-                    <InputNumber label="Quantity" property="quantity" />
+                    <InputText label="Symbol" property="symbol" data="" />
+                    <InputStatus label="Status" property="status" data="" />
+                    <InputNumber label="Target Sell Price" property="targetSellPrice" data={0} />
+                    <InputNumber label="Target Buy Price" property="targetBuyPrice" data={0} />
+                    <InputNumber label="Purchased Price" property="purchasedPrice" data={0} />
+                    <InputNumber label="Quantity" property="quantity" data={0} />
                     <div className="flex flex-col mb-2">
                         <label htmlFor="password" className="font-bold">Password</label>
                         <input
@@ -34,7 +38,7 @@ export default function PurchaseInvestments () {
                             className="border-2 border-slate-500 rounded-md p-2"
                             />
                     </div>
-                    <SubmitButton pwd={password} />
+                    <SubmitButton pwd={password} type="purchaseInvestment" cleanUp={resetPassword} />
                     <div className='flex justify-center align-center mt-4'>
                         <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>
                     </div>

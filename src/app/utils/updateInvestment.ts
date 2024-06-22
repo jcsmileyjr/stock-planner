@@ -1,19 +1,18 @@
 
-export default function updateState(e:any, property:string, state:any, dispatch:any, setter: any) {
-    setter(e.target.value);
+export default function updateState(input:any, property:string, state:any, dispatch:any) {
     let content = state.investment;
     if (property === "symbol"){
-        content.symbol = e.target.value;
+        content.symbol = input;
     } else if (property === "quantity"){
-        content.quantity = e.target.value;            
+        content.quantity = input;            
     } else if (property === "targetSellPrice"){
-        content.targetSellPrice = e.target.value;
+        content.targetSellPrice = input;
     } else if (property === "targetBuyPrice"){
-        content.targetBuyPrice = e.target.value;
+        content.targetBuyPrice = input;
     } else if (property === "purchasedPrice"){
-        content.purchasedPrice = e.target.value;
+        content.purchasedPrice = input;
     } else if (property === "status"){
-        content.status = e.target.value;
+        content.status = input;
     }
     dispatch({type:"currentInvestment", content: content});
 }

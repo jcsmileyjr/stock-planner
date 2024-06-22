@@ -1,21 +1,23 @@
-// 'use server'
-// import { redirect } from 'next/navigation';
-// import { revalidatePath } from 'next/cache';
-import dataType from "../types/dataType";
-import { NextResponse } from "next/server";
-import connectDb from '../config/db';
-import Investment from '../models/Investment';
+import editData from "./editData";
 import saveData from "./saveData";
-const submitInvestment = async (type: string, pwd: string, state: any, dispatch: any, router: any) => {
+const submitInvestment = async (type: string, pwd: string, state: any, dispatch: any, router: any, cleanUp: Function) => {
     if (pwd === process.env.NEXT_PUBLIC_PASSWORD) { 
         let data = state.investment;
-        await saveData(data);
+        if ( type === 'purchaseInvestment') {
+            await saveData(data);
+        } else if (type === 'editInvestment') {
+            await editData(data);
+        } else {
+            console.log("submitInvestment(): wrong type")
+        }
+        
         dispatch({ type: type, content: data });
         router.push('/')
     } else {
         // Throw error
         console.log("Wrong password")
     }
+    cleanUp(); // Clean up state like the password
 }
 
 export default submitInvestment;

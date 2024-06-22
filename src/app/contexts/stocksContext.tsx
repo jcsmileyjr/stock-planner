@@ -7,6 +7,7 @@ import stockType from '../types/stockType';
 
 type Action = { type: 'purchaseInvestment', content: stockType } | 
 	{ type: 'saleInvestment', content: string, property: string  } | 
+	{ type: 'editInvestment', content: stockType} |
 	{ type: 'scoutInvestment', content: string, property: string  } | 
 	{ type: 'currentInvestment', content: stockType };
 
@@ -25,9 +26,13 @@ const InvestmentStateContext = React.createContext<
 function investmentReducer(state: State, action: Action) {
 	switch (action.type) {
 		case 'purchaseInvestment': {
-			console.log("currentInvestment", action.content)
+			console.log("purchaseInvestment", action.content)
 			return { investment: action.content}
 		}
+		case 'editInvestment': {
+			console.log("editInvestment", action.content)
+			return { investment: action.content}
+		}		
 		case 'saleInvestment': {
 			return { investment: state.investment}
 		}

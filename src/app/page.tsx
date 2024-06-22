@@ -6,22 +6,8 @@ import Footer from './components/footer/footer';
 import refineInvestments from './utils/refineInvestments';
 import calculateData from './utils/calculateData';
 
-/**
- * TODO: Get stock data from a API or JSON file
- * ✅ Get stored investments, AKA the testData.json (initially) but later from localstorage & later from an CMS
- * ✅ Formally list all stock symbols based on saved investments.
- * ✅ Update test data with real stocks
- * ✅ Get stock data from API or JSON file
- * - Get prices for each stock and update/calculate investments
- * ✅ Convert raw stock data into an array of stock objects to display
- * ✅ Update variables on this page to use the new stock objects
- * - Save investments to local storage
- * - Enable investments to be called from local storage
- */
-
 export default async function Home() {
   let data = await calculateData();
-
   const currentStocks = await refineInvestments(data, 'purchased'); 
   const scoutStocks = await refineInvestments(data, 'scouted'); 
 

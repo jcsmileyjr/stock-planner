@@ -39,7 +39,6 @@ const stocksSchema = new Schema({
 
     flag: {
         type: String,
-        required: true,
     },
 
     quantity: {
