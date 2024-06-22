@@ -13,11 +13,12 @@ const submitInvestment = async (type: string, pwd: string, state: any, dispatch:
         
         dispatch({ type: type, content: data });
         router.push('/')
+        cleanUp(false); // Clean up state like the password
     } else {
         // Throw error
         console.log("Wrong password")
+        cleanUp(true); // Clean up state like the password
     }
-    cleanUp(); // Clean up state like the password
 }
 
 export default submitInvestment;
