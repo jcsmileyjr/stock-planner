@@ -39,10 +39,10 @@ export default function SaleForm ({content}: {content: dataType}) {
         <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
             <InvestmentProvider>
                 <InputPickStock label="Pick a Stock" stocks={content.stocks} getStock={updateStock} isSale={true} />
-                <InputText label="Quantity" property="quantity" data={String(currentStock["quantity"])} />
 
                 <p className='font-bold'>Details</p>
                 <p>Current Price: ${currentStock["currentPrice"]}</p>
+                <p>Quanity : #{currentStock["quantity"]}</p>
                 <p>Target Sell Price: ${currentStock["targetSellPrice"]}</p>
                 <p>Purchase Price: ${currentStock["purchasedPrice"]}</p>
                 <p>Profit Margin: ${calculateProfitMargin(currentStock) }</p>
