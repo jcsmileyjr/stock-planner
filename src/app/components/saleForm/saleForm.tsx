@@ -3,7 +3,7 @@ import { useState} from 'react';
 import Link from 'next/link';
 import { InvestmentProvider, useInvestments } from '../../contexts/stocksContext';
 import calculateProfitMargin from '@/app/utils/calculateProfitMargin';
-import InputText from "../inputText/inputText";
+import refineInvestments from '../../utils/refineInvestments';
 import SubmitButton from '../submitbutton/submitButton';
 import InputPickStock from '../inputPickStock/inputPickStock';
 import dataType from '@/app/types/dataType';
@@ -16,11 +16,13 @@ export default function SaleForm ({content}: {content: dataType}) {
     const [currentStockSymbol, setCurrentStockSymbol] = useState("");
     const [currentStock, setCurrentStock] = useState(genericStock as stockType);
 
+    let purchasedStocks = refineInvestments(content, 'purchased'); 
+
     const updateStock = (symbol: string) => {
         setCurrentStockSymbol(symbol);
-        const stockIndex: number = content.stocks.findIndex((stock: stockType) => stock.symbol === symbol);
+        const stockIndex: number = purchasedStocks.findIndex((stock: stockType) => stock.symbol === symbol);
         if(stockIndex !== -1) {
-            setCurrentStock(content.stocks[stockIndex]);
+            setCurrentStock(purchasedStocks[stockIndex]);
         }
     }
 
@@ -38,7 +40,7 @@ export default function SaleForm ({content}: {content: dataType}) {
     return (
         <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
             <InvestmentProvider>
-                <InputPickStock label="Pick a Stock" stocks={content.stocks} getStock={updateStock} isSale={true} />
+                <InputPickStock label="Pick a Stock" stocks={purchasedStocks} getStock={updateStock} isSale={true} />
 
                 <p className='font-bold'>Details</p>
                 <p>Current Price: ${currentStock["currentPrice"]}</p>
