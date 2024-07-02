@@ -1,5 +1,5 @@
 "use client"
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import Link from 'next/link';
 import { InvestmentProvider, useInvestments } from '../../contexts/stocksContext';
 import calculateProfitMargin from '@/app/utils/calculateProfitMargin';
@@ -15,6 +15,12 @@ export default function SaleForm ({content}: {content: dataType}) {
     const [passwordError, setPasswordError] = useState(false);
     const [currentStockSymbol, setCurrentStockSymbol] = useState("");
     const [currentStock, setCurrentStock] = useState(genericStock as stockType);
+
+    useEffect(() => {
+        if (currentStockSymbol === "") {
+            setCurrentStockSymbol(""); 
+        }
+    }, [currentStockSymbol]);
 
     let purchasedStocks = refineInvestments(content, 'purchased'); 
 
