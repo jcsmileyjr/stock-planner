@@ -1,11 +1,13 @@
 import Header from "../components/header/header";
 import EditForm from "../components/editForm/editForm";
 import getData from "../utils/getData";
+import refineEditInvestments from "../utils/refineEditInvestments";
 
 export default async function EditInvestments () {
     const response = await getData();
     const data = await response.json();
-    const content = data[0]
+    const content = data[0];
+    content.stocks = refineEditInvestments(content);
     
     return (
         <main className="flex min-h-screen flex-col mx-4">
