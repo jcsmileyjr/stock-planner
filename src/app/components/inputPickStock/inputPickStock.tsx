@@ -1,13 +1,25 @@
 "use client"
 import { useState} from 'react';
 import StockType from '@/app/types/stockType';
+import prepareSaleInvestment from '@/app/utils/prepareSaleInvestment';
+import { useInvestments } from "@/app/contexts/stocksContext"
 
-export default function InputPickStock ({label, stocks, getStock}: {label: string, stocks: StockType[], getStock: Function}) {
+export default function InputPickStock ({label, stocks, getStock, isSale}: {label: string, stocks: StockType[], getStock: Function, isSale: boolean}) {
+    const { state, dispatch } = useInvestments();
     const [value, setValue] = useState("");
 
     const updateStock = (stockSymbol: string) => {
         getStock(stockSymbol);
         setValue(stockSymbol);
+
+        if (isSale) {
+            prepareSale(stockSymbol);
+        }
+    }
+
+    const prepareSale = (symbol: string) => {
+        const stockIndex: number = stocks.findIndex((stock: StockType) => stock.symbol === symbol);
+        prepareSaleInvestment(stocks[stockIndex], state, dispatch);
     }
 
     return (
