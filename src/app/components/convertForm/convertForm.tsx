@@ -56,7 +56,7 @@ export default function ConvertForm ({content}: {content: StockType[]}) {
                         className="border-2 border-slate-500 rounded-md p-2"
                         />
                 </div>
-                <SubmitButton pwd={password} type="editInvestment" cleanUp={cleanUp} error={passwordError} />
+                <SubmitButton pwd={password} type="convertInvestment" cleanUp={cleanUp} error={passwordError} />
                 <div className='flex justify-center align-center mt-4'>
                     <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>
                 </div>
