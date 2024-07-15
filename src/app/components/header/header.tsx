@@ -22,7 +22,7 @@ export default function Header() {
             </div>
             
             {isMenuOpen &&
-                <div className='self-center flex flex-col gap-2 laptop:hidden'>
+                <div className='self-center items-baseline flex flex-col gap-2 laptop:hidden'>
                     <Link href='/purchaseInvestments' className="text-cyan-700 underline hover:text-indigo-700">Purchase Investment</Link>
                     <Link href='/editInvestments' className="text-cyan-700 underline hover:text-indigo-700">Edit Investment</Link>
                     <Link href='/saleInvestments' className="text-cyan-700 underline hover:text-indigo-700 ml-4">Sale Investment</Link>
