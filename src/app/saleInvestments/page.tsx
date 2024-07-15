@@ -1,5 +1,4 @@
 import Header from "../components/header/header";
-import EditForm from "../components/editForm/editForm";
 import SaleForm from "../components/saleForm/saleForm";
 import getData from "../utils/getData";
 

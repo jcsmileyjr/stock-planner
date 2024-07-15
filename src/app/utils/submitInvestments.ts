@@ -1,6 +1,7 @@
 import editData from "./editData";
 import saveData from "./saveData";
 import saleData from "./saleData";
+import convertData from "./convertData";
 const submitInvestment = async (type: string, pwd: string, state: any, dispatch: any, router: any, cleanUp: Function) => {
     if (pwd === process.env.NEXT_PUBLIC_PASSWORD) { 
         let data = state.investment;
@@ -10,6 +11,8 @@ const submitInvestment = async (type: string, pwd: string, state: any, dispatch:
             await editData(data);
         } else if (type === 'saleInvestment') {
             await saleData(data);
+        } else if (type === 'convertInvestment') {
+            await convertData(data);
         } else {
             console.log("submitInvestment(): wrong type")
         }

@@ -8,13 +8,10 @@ import stockType from '../types/stockType';
 type Action = { type: 'purchaseInvestment', content: stockType } | 
 	{ type: 'saleInvestment', content: string, property: string  } | 
 	{ type: 'editInvestment', content: stockType} |
+	{ type: 'convertInvestment', content: stockType} |
 	{ type: 'scoutInvestment', content: string, property: string  } | 
 	{ type: 'currentInvestment', content: stockType };
 
-	// { type: 'currentInvestmentString', content: string, property: string  } |
-	// { type: 'currentInvestmentNumber', content: string, property: number  };
-//type Dispatch = (action: Action, content: string, property: string) => void
-//type Dispatch = (action: Action, content: string) => void
 type Dispatch = (action: Action) => void
 type State = { investment: stockType }
 type InvestmentProviderProps = { children: React.ReactNode }
@@ -26,17 +23,18 @@ const InvestmentStateContext = React.createContext<
 function investmentReducer(state: State, action: Action) {
 	switch (action.type) {
 		case 'purchaseInvestment': {
-			console.log("purchaseInvestment", action.content)
 			return { investment: action.content}
 		}
 		case 'editInvestment': {
-			console.log("editInvestment", action.content)
 			return { investment: action.content}
 		}		
 		case 'saleInvestment': {
 			return { investment: state.investment}
 		}
 		case 'scoutInvestment': {
+			return { investment: state.investment}
+		}
+		case 'convertInvestment': {
 			return { investment: state.investment}
 		}
 		case 'currentInvestment': {
