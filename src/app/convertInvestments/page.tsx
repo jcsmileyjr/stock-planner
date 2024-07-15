@@ -1,11 +1,12 @@
 import Header from "../components/header/header";
 import ConvertForm from "../components/convertForm/convertForm";
 import getData from "../utils/getData";
+import refineInvestments from "../utils/refineInvestments";
 
 export default async function ConvertInvestments () {
     const response = await getData();
     const data = await response.json();
-    const content = data[0]
+    const content = refineInvestments(data[0], 'scouted'); // Filter in only scouted investments
     
     return (
         <main className="flex min-h-screen flex-col mx-4">
