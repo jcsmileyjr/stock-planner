@@ -1,8 +1,8 @@
 import Header from "../components/header/header";
-import SaleForm from "../components/saleForm/saleForm";
+import ConvertForm from "../components/convertForm/convertForm";
 import getData from "../utils/getData";
 
-export default async function SaleInvestments () {
+export default async function ConvertInvestments () {
     const response = await getData();
     const data = await response.json();
     const content = data[0]
@@ -10,8 +10,8 @@ export default async function SaleInvestments () {
     return (
         <main className="flex min-h-screen flex-col mx-4">
             <Header />
-            <h2 className="uppercase text-xl laptop:text-2xl font-bold underline text-center mb-4">Edit Investment Setup</h2>
-            <SaleForm content={content} />
+            <h2 className="uppercase text-xl laptop:text-2xl font-bold underline text-center mb-4">Convert Scout Investment</h2>
+            <ConvertForm content={content} />
         </main>
     )
 }
