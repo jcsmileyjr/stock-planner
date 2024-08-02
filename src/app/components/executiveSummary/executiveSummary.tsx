@@ -72,7 +72,7 @@ const calculateProfit = (data: dataType) => {
 export default function ExecutiveSummary({content}: {content: dataType}) {
     const totalInvestments = calculateTotalInvestments(content);
     return (
-        <section className=" col-span-1 pb-4 mb-4 border-solid border-b-2 border-slate-500">
+        <section className=" col-span-1 pb-4 mb-4">
             <h1 className="underline font-bold uppercase text-2xl mb-2">Executive Summary</h1>
             <div className="flex flex-row justify-between mb-2">
                 <div className='flex flex-row items-center'><p>Total Investments</p> <InformationModal prompt='totalInvestment' />:</div>
