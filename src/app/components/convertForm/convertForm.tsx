@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { InvestmentProvider} from '../../contexts/stocksContext';
 import InputText from "../inputText/inputText";
 import InputNumber from "../inputNumber/inputNumber";
-import InputStatus from "../inputStatus/inputStatus";
 import SubmitButton from '../submitbutton/submitButton';
 import InputPickStock from '../inputPickStock/inputPickStock';
 import StockType from '@/app/types/stockType';

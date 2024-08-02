@@ -12,6 +12,7 @@ export default function CurrentInvestments({content}: {content: stockType[]}) {
                 <p className="hidden laptop:flex flex-1 font-bold">Invest Price</p>
                 <p className="hidden laptop:flex flex-1 font-bold">Profit Margin</p>
                 <p className="hidden laptop:flex flex-1 font-bold">Quantity</p>
+                <p className="hidden laptop:flex flex-1 font-bold">Days Invested</p>
                 <p className="flex-1 font-bold">Flag</p>
             </div>
             <div className="divide-y">
