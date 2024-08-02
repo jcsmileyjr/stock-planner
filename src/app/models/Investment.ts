@@ -51,7 +51,17 @@ const stocksSchema = new Schema({
     profitMargin: {
         type: Number,
         required: true,
-    },  
+    },
+    
+    purchaseDate: {
+        type: String,
+        required: true,
+    },
+
+    saleDate: {
+        type: String,
+        required: true,
+    },
 });
 
 // Investment Schema

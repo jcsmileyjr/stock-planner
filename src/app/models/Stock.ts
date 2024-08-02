@@ -50,6 +50,16 @@ const stocksSchema = new Schema({
         type: Number,
         required: true,
     },  
+
+    purchasedDate: {
+        type: String,
+        required: true,
+    },
+
+    saleDate: {
+        type: String,
+        required: true,
+    },
 });
 
 const Stock = models.stocksSchema || model("Stock", stocksSchema);

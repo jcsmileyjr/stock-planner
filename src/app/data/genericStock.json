@@ -8,5 +8,7 @@
     "purchasedPrice": 0,
     "flag": "generic",
     "quantity": 0,
-    "profitMargin": 0
+    "profitMargin": 0,
+    "purchaseDate": "01-01-2024",
+    "saleDate": "01-01-2024"
 }

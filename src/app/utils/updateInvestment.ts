@@ -13,6 +13,10 @@ export default function updateState(input:any, property:string, state:any, dispa
         content.purchasedPrice = input;
     } else if (property === "status"){
         content.status = input;
+    } else if (property === "purchaseDate"){
+        content.purchaseDate = input;
+    } else if (property === "saleDate"){
+        content.saleDate = input;
     }
     dispatch({type:"currentInvestment", content: content});
 }

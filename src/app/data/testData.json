@@ -160,7 +160,7 @@
         {
             "symbol": "IRAT",
             "name": "genric",
-            "status": "scouted",
+            "status": "purchased",
             "currentPrice": 28,
             "targetSellPrice": 44,
             "targetBuyPrice": 36,

@@ -10,7 +10,7 @@ export default async function Home() {
   let data = await calculateData();
   const currentStocks = await refineInvestments(data, 'purchased'); 
   const scoutStocks = await refineInvestments(data, 'scouted'); 
-
+console.log("data", data);
   return (
     <main className="flex min-h-screen flex-col">
       <Header />
