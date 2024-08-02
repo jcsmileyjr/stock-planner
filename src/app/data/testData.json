@@ -156,6 +156,30 @@
             "profitMargin": 0,
             "quantity": 6,
             "flag": ""
+        },
+        {
+            "symbol": "IRAT",
+            "name": "genric",
+            "status": "scouted",
+            "currentPrice": 28,
+            "targetSellPrice": 44,
+            "targetBuyPrice": 36,
+            "purchasedPrice": 9,
+            "profitMargin": 0,
+            "quantity": 0,
+            "flag": ""
+        },
+        {
+            "symbol": "KR",
+            "name": "generic",
+            "status": "sold",
+            "currentPrice": 55,
+            "targetSellPrice": 50,
+            "targetBuyPrice": 45,
+            "purchasedPrice": 44,
+            "profitMargin": 0,
+            "quantity": 10,
+            "flag": ""
         }
     ]
 }
