@@ -49,7 +49,7 @@ const calculateTotalInvestments = (data: dataType) => {
         }
     })
 
-    return amount;
+    return amount.toFixed(2);
 }
 
 /**
