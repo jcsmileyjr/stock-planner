@@ -23,12 +23,13 @@ import StockFlag from '../stockFlag/stockFlag';
  */
 export default function StockToggle({stock}: {stock: stockType}) {
     const [openStock, setOpenStock] = useState(false);
+    let liveUpdateLink = `https://www.marketwatch.com/investing/stock/${stock['symbol']}`;
     
     return (
         <div className="flex flex-row">
             <details className='w-full my-2' open={openStock} onToggle={() => setOpenStock(!openStock)}>
                 <summary className='flex flex-row'>
-                    <p className="flex-1 font-bold ">{stock['symbol']}</p>
+                    <a className="flex-1 font-bold underline" href={liveUpdateLink} target="_blank" rel="noopener">{stock['symbol']}</a>
                     <p  className={`flex-1 `}>${stock['currentPrice']}</p>
                     {stock['status'] === 'purchased' &&
                         <p  className={` flex-1 `}>${stock['targetSellPrice']}</p>
