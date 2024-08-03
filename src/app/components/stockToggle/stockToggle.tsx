@@ -23,7 +23,7 @@ import StockFlag from '../stockFlag/stockFlag';
  */
 export default function StockToggle({stock}: {stock: stockType}) {
     const [openStock, setOpenStock] = useState(false);
-    let liveUpdateLink = `https://www.marketwatch.com/investing/stock/${stock['symbol']}`;
+    let liveUpdateLink = `https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=${stock['symbol']}`;
     
     return (
         <div className="flex flex-row">
