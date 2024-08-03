@@ -7,6 +7,10 @@ import stockType from "../types/stockType";
  * @return {number} The number of days between the current date and the purchase date.
  */
 export default function calculateDaysInvested (stock: stockType) {
+    if (stock.status === "scouted") {
+        return 0;
+    }
+
     let currentDate = new Date(); // Create a new date object for today's date
     let purchaseDate = new Date(stock.purchaseDate); // Create a new date object for the purchase date
     let difference = currentDate.getTime() - purchaseDate.getTime(); // Get the difference in milliseconds
