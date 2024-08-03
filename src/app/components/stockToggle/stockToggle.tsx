@@ -23,12 +23,13 @@ import StockFlag from '../stockFlag/stockFlag';
  */
 export default function StockToggle({stock}: {stock: stockType}) {
     const [openStock, setOpenStock] = useState(false);
+    let liveUpdateLink = `https://digital.fidelity.com/prgw/digital/research/quote/dashboard/summary?symbol=${stock['symbol']}`;
     
     return (
         <div className="flex flex-row">
             <details className='w-full my-2' open={openStock} onToggle={() => setOpenStock(!openStock)}>
                 <summary className='flex flex-row'>
-                    <p className="flex-1 font-bold ">{stock['symbol']}</p>
+                    <a className="flex-1 font-bold underline text-blue-800" href={liveUpdateLink} target="_blank" rel="noopener">{stock['symbol']}</a>
                     <p  className={`flex-1 `}>${stock['currentPrice']}</p>
                     {stock['status'] === 'purchased' &&
                         <p  className={` flex-1 `}>${stock['targetSellPrice']}</p>
