@@ -4,13 +4,15 @@
         {
             "symbol": "GH",
             "name": "Guardant Health",
-            "status": "purchased",
+            "status": "sold",
             "currentPrice": 27,
             "targetSellPrice": 28,
             "targetBuyPrice": 21,
             "purchasedPrice": 18.50,
             "profitMargin": 0,
             "quantity": 20,
+            "purchaseDate": "3/20/2024",
+            "saleDate": "6/7/2024",
             "flag": ""
         },
         {
@@ -23,6 +25,8 @@
             "purchasedPrice": 38.35,
             "profitMargin": 0,
             "quantity": 11,
+            "purchaseDate": "2/26/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         },
         {
@@ -35,6 +39,8 @@
             "purchasedPrice": 72.83,
             "profitMargin": 0,
             "quantity": 7,
+            "purchaseDate": "4/1/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         },
         {
@@ -47,6 +53,8 @@
             "purchasedPrice": 62.456,
             "profitMargin": 0,
             "quantity": 12,
+            "purchaseDate": "2/26/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         },
         {
@@ -59,6 +67,8 @@
             "purchasedPrice": 0,
             "profitMargin": 0,
             "quantity": 0,
+            "purchaseDate": "5/22/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         },
         {
@@ -71,6 +81,8 @@
             "purchasedPrice": 0,
             "profitMargin": 0,
             "quantity": 0,
+            "purchaseDate": "1/1/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         },
         {
@@ -83,6 +95,8 @@
             "purchasedPrice": 0,
             "profitMargin": 0,
             "quantity": 0,
+            "purchaseDate": "1/1/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         },
         {
@@ -95,6 +109,8 @@
             "purchasedPrice": 171.84,
             "profitMargin": 0,
             "quantity": 5,
+            "purchaseDate": "3/18/2024",
+            "saleDate": "5/20/2024",
             "flag": ""
         },
         {
@@ -107,6 +123,8 @@
             "purchasedPrice": 62,
             "profitMargin": 0,
             "quantity": 7,
+            "purchaseDate": "4/18/2024",
+            "saleDate": "5/2/2024",
             "flag": ""
         },
         {
@@ -119,6 +137,8 @@
             "purchasedPrice": 203,
             "profitMargin": 0,
             "quantity": 1,
+            "purchaseDate": "2/16/2024",
+            "saleDate": "3/15/2024",
             "flag": ""
         },
         {
@@ -131,6 +151,8 @@
             "purchasedPrice": 86.07,
             "profitMargin": 0,
             "quantity": 12,
+            "purchaseDate": "3/14/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         },
         {
@@ -143,6 +165,8 @@
             "purchasedPrice": 337.02,
             "profitMargin": 0,
             "quantity": 1,
+            "purchaseDate": "4/5/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         },
         {
@@ -155,30 +179,36 @@
             "purchasedPrice": 109.60,
             "profitMargin": 0,
             "quantity": 6,
+            "purchaseDate": "4/19/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         },
         {
             "symbol": "IRAT",
             "name": "genric",
-            "status": "purchased",
+            "status": "scouted",
             "currentPrice": 28,
             "targetSellPrice": 44,
             "targetBuyPrice": 36,
             "purchasedPrice": 9,
             "profitMargin": 0,
             "quantity": 0,
+            "purchaseDate": "1/1/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         },
         {
             "symbol": "KR",
             "name": "generic",
-            "status": "sold",
+            "status": "scouted",
             "currentPrice": 55,
             "targetSellPrice": 50,
             "targetBuyPrice": 45,
             "purchasedPrice": 44,
             "profitMargin": 0,
-            "quantity": 10,
+            "quantity": 0,
+            "purchaseDate": "1/1/2024",
+            "saleDate": "1/1/2024",
             "flag": ""
         }
     ]

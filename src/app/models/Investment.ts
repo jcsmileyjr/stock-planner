@@ -3,7 +3,7 @@ import stockType from "../types/stockType";
 import Stock from './Stock';
 import StockType from "../types/stockType";
 
-const stocksSchema = new Schema({
+const stocksSchema2 = new Schema({
     symbol: {
         type: String,
         required: true,
@@ -70,9 +70,9 @@ const investmentSchema = new Schema({
         type: Number,
         required: true,
     },
-    stocks: [stocksSchema],
+    stocks: [stocksSchema2],
 });
 
-const Investment = models.Investment || model("Investment", investmentSchema);
+const Investment = models.Investment2 || model("Investment2", investmentSchema);
 
 export default Investment;
