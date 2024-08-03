@@ -40,7 +40,7 @@ export default function StockToggle({stock}: {stock: stockType}) {
                         <>
                             <p  className={`hidden laptop:block flex-1 font-bold laptop:font-normal`}>${stock['purchasedPrice']}</p> 
                             <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">${calculateProfitMargin(stock) }</p>  
-                            <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">${stock['quantity']}</p>
+                            <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">#{stock['quantity']}</p>
                             <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">{calculateDaysInvested(stock)}</p>
                         </>
                     }
