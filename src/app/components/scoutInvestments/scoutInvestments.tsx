@@ -11,7 +11,7 @@ export default function ScoutInvestments({content}: {content: stockType[]}) {
                 <p className="flex-1 lg:w-1/4  font-bold">Buy Price</p>
                 <p className="flex-1 lg:w-1/4  font-bold">Flag</p>
             </div>
-            <div className="divide-y">
+            <div className="divide-y mb-8 laptop:mb-0">
                 {
                     content.map((stock) => {
                         return (
