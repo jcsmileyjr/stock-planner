@@ -15,6 +15,8 @@ export default function calculateDaysInvested (stock: stockType) {
     let purchaseDate = new Date(stock.purchaseDate); // Create a new date object for the purchase date
     let difference = currentDate.getTime() - purchaseDate.getTime(); // Get the difference in milliseconds
     let days = Math.ceil(difference / (1000 * 3600 * 24)); // Convert the difference to days
-    return days
+    
+    return 0;
+    //return days
 
 }
