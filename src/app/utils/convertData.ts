@@ -3,6 +3,7 @@ import { revalidatePath } from 'next/cache';
 import connectDb from '../config/db';
 import Investment from '../models/Investment';
 import StockType from '../types/stockType';
+import dayjs from 'dayjs';
 
 const convertData = async (data : StockType) => {
     try {
@@ -13,6 +14,8 @@ const convertData = async (data : StockType) => {
         const index = content.stocks.findIndex((stock: StockType) => stock.symbol === data.symbol);        
         const stock_id = content.stocks[index]._id;
         data.status = "purchased";
+        data.purchaseDate = dayjs().format("MM/DD/YYYY"); // set purchased date to today's date
+        
         content.stocks[index] = data;
         content.stocks[index]._id = stock_id;
         

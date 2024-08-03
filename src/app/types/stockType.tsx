@@ -10,4 +10,6 @@ export default interface StockType {
     flag: string
     quantity: number
     profitMargin: number
+    purchaseDate: string
+    saleDate: string
 }

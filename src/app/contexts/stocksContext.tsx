@@ -6,10 +6,9 @@ import * as React from 'react'
 import stockType from '../types/stockType';
 
 type Action = { type: 'purchaseInvestment', content: stockType } | 
-	{ type: 'saleInvestment', content: string, property: string  } | 
+	{ type: 'saleInvestment', content: stockType  } | 
 	{ type: 'editInvestment', content: stockType} |
 	{ type: 'convertInvestment', content: stockType} |
-	{ type: 'scoutInvestment', content: string, property: string  } | 
 	{ type: 'currentInvestment', content: stockType };
 
 type Dispatch = (action: Action) => void
@@ -29,13 +28,10 @@ function investmentReducer(state: State, action: Action) {
 			return { investment: action.content}
 		}		
 		case 'saleInvestment': {
-			return { investment: state.investment}
-		}
-		case 'scoutInvestment': {
-			return { investment: state.investment}
+			return { investment: action.content}
 		}
 		case 'convertInvestment': {
-			return { investment: state.investment}
+			return { investment: action.content}
 		}
 		case 'currentInvestment': {
 			// console.log("currentInvestment", action.content)

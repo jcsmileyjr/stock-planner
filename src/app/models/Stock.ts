@@ -1,7 +1,7 @@
 import { Schema, model, models } from "mongoose";
 
 // Stock Schema
-const stocksSchema = new Schema({
+const stocksSchema2 = new Schema({
     symbol: {
         type: String,
         required: true,
@@ -50,8 +50,18 @@ const stocksSchema = new Schema({
         type: Number,
         required: true,
     },  
+
+    purchasedDate: {
+        type: String,
+        required: true,
+    },
+
+    saleDate: {
+        type: String,
+        required: true,
+    },
 });
 
-const Stock = models.stocksSchema || model("Stock", stocksSchema);
+const Stock = models.stocksSchema2 || model("Stock", stocksSchema2);
 
 export default Stock;

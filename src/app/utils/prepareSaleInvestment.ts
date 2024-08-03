@@ -18,6 +18,8 @@ export default function prepareSaleInvestment(data: StockType, state:any, dispat
     content.targetSellPrice = data.targetSellPrice;
     content.targetBuyPrice = data.targetBuyPrice;
     content.purchasedPrice = data.purchasedPrice;
+    content.purchaseDate = data.purchaseDate;
+    content.saleDate = data.saleDate;
     content._id = data._id;
     content.status = "sold";
     console.log("prepared sale content", content);

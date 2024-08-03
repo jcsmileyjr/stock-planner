@@ -2,6 +2,7 @@
 import {useState} from 'react';
 import stockType from '../../types/stockType';
 import calculateProfitMargin from '../../utils/calculateProfitMargin';
+import calculateDaysInvested from '@/app/utils/calculateDaysInvested';
 import StockFlag from '../stockFlag/stockFlag';
 
 /**
@@ -39,19 +40,21 @@ export default function StockToggle({stock}: {stock: stockType}) {
                         <>
                             <p  className={`hidden laptop:block flex-1 font-bold laptop:font-normal`}>${stock['purchasedPrice']}</p> 
                             <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">${calculateProfitMargin(stock) }</p>  
-                            <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">${stock['quantity']}</p>
+                            <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">#{stock['quantity']}</p>
+                            <p  className="hidden laptop:block flex-1 font-bold laptop:font-normal">{calculateDaysInvested(stock)}</p>
                         </>
                     }
                     <StockFlag stock={stock} key={`${stock['symbol']}-flag`} />                 
                 </summary>
                 {
                     Object.keys(stock).map((key) => {
-                        if(key === 'purchasedPrice' || key === 'quantity' || key === 'profitMargin') {
+                        if(key === 'purchasedPrice' || key === 'quantity' || key === 'profitMargin' || key === 'purchaseDate') {
                             return (
                                 <div className='flex flex-row' key={`${stock['symbol']}-${key}`}>
-                                    <p className="flex laptop:hidden font-medium indent-4 flex-1">{key === 'profitMargin' ? 'Profit Margin' : key==='quantity' ? 'Quantity' : 'Invest Price'}:</p>
+                                    <p className="flex laptop:hidden font-medium indent-4 flex-1">{key === 'profitMargin' ? 'Profit Margin' : key==='quantity' ? 'Quantity' : key === 'purchasedPrice' ? 'Invest Price' : 'Days Invested'}:</p>
                                     { key === 'profitMargin' && <p className="flex laptop:hidden font-normal flex-1">${calculateProfitMargin(stock)}</p> }
-                                    { key !== 'profitMargin' && <p className="flex laptop:hidden font-normal flex-1">{key === 'quantity' ? "#":"$"}{stock[key]}</p> }
+                                    { key !== 'profitMargin' && key !== 'purchaseDate' && <p className="flex laptop:hidden font-normal flex-1">{key === 'quantity' ? "#":"$"}{stock[key]}</p> }
+                                    { key === 'purchaseDate' && <p className="flex laptop:hidden font-normal flex-1">{calculateDaysInvested(stock)}</p> }
                                 </div>
                             )
                         }
