@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@netlify/functions": "^2.7.0",
+    "dayjs": "^1.11.12",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.1",
     "next": "14.0.4",
