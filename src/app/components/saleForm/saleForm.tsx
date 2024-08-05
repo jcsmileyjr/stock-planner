@@ -6,9 +6,11 @@ import calculateProfitMargin from '@/app/utils/calculateProfitMargin';
 import refineInvestments from '../../utils/refineInvestments';
 import SubmitButton from '../submitbutton/submitButton';
 import InputPickStock from '../inputPickStock/inputPickStock';
+import InputDate from '../inputDate/inputDate';
 import dataType from '@/app/types/dataType';
 import stockType from '@/app/types/stockType';
 import genericStock from '../../data/genericStock.json';
+import dayjs from 'dayjs';
 
 export default function SaleForm ({content}: {content: dataType}) {
     const [password, setPassword] = useState("");
@@ -47,7 +49,7 @@ export default function SaleForm ({content}: {content: dataType}) {
         <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
             <InvestmentProvider>
                 <InputPickStock label="Pick a Stock" stocks={purchasedStocks} getStock={updateStock} isSale={true} />
-
+                <InputDate label="Date of Sale" property="saleDate" data={dayjs().format("MM/DD/YYYY")} />
                 <p className='font-bold'>Details</p>
                 <p>Current Price: ${currentStock["currentPrice"]}</p>
                 <p>Quanity : #{currentStock["quantity"]}</p>

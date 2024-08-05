@@ -11,14 +11,12 @@ const saveData = async (data : StockType) => {
         const serverData = await Investment.find({}); // get data from database
         const content = serverData[0]; // Extract data from server's array
         
-        if (data.status === "purchased") {
-            data.purchaseDate = dayjs().format("MM/DD/YYYY"); // set purchase date to today's date
-        } else {
-            data.purchaseDate = "1/1/2024"; // set purchase date to default if scouted investment
+        if(data.status === "") {
+            data.status = "scouted";
         }
         data.saleDate = "1/1/2024"; // set sale date
         content.stocks.push(data); // Add new stock to array
-
+//console.log("Stock added - saveData:", data);
         const investments = new Investment(content); // Create new investment with updated investment information
         //console.log("investments created in saved data", investments);
         await investments.save(); // Save updated investment

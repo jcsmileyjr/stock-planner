@@ -22,6 +22,6 @@ export default function prepareSaleInvestment(data: StockType, state:any, dispat
     content.saleDate = data.saleDate;
     content._id = data._id;
     content.status = "sold";
-    console.log("prepared sale content", content);
+    //console.log("prepared sale content", content);
     dispatch({type:"currentInvestment", content: content});
 }
