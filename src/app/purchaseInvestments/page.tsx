@@ -30,7 +30,7 @@ export default function PurchaseInvestments () {
             <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
                 <InvestmentProvider>
                     <InputText label="Symbol" property="symbol" data="" />
-                    <InputStatus label="Status" property="status" data="" />
+                    <InputStatus label="Status" property="status" data="" disableInput={false} />
                     <InputNumber label="Target Sell Price" property="targetSellPrice" data={0} />
                     <InputNumber label="Target Buy Price" property="targetBuyPrice" data={0} />
                     <InputNumber label="Purchased Price" property="purchasedPrice" data={0} />
