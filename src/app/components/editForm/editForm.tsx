@@ -43,7 +43,7 @@ export default function EditForm ({content}: {content: dataType}) {
             <InvestmentProvider>
                 <InputPickStock label="Pick a Stock" stocks={content.stocks} getStock={updateStock} isSale={false} />
                 <InputText label="Symbol" property="symbol" data={currentStock["symbol"]} />
-                <InputStatus label="Status" property="status" data={currentStock["status"]} />
+                <InputStatus label="Status" property="status" data={currentStock["status"]} disableInput={true} />
                 <InputNumber label="Target Sell Price" property="targetSellPrice" data={currentStock["targetSellPrice"]} />
                 <InputNumber label="Target Buy Price" property="targetBuyPrice" data={currentStock["targetBuyPrice"]} />
                 <InputNumber label="Purchased Price" property="purchasedPrice" data={currentStock["purchasedPrice"]} />
