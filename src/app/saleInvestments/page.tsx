@@ -9,7 +9,7 @@ export default async function SaleInvestments () {
     return (
         <main className="flex min-h-screen flex-col mx-4">
             <Header />
-            <h2 className="uppercase text-xl laptop:text-2xl font-bold underline text-center mb-4">Edit Investment Setup</h2>
+            <h2 className="uppercase text-xl laptop:text-2xl font-bold underline text-center mb-4">Sale Investment Setup</h2>
             <SaleForm content={content} />
         </main>
     )

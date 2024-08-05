@@ -15,7 +15,7 @@ const editData = async (data : StockType) => {
         content.stocks[index] = data;
         content.stocks[index]._id = stock_id;
 
-
+console.log("Stock updated - editData:", content.stocks[index]);
         const investments = new Investment(content); // Create new investment with updated investment information        
         await investments.save(); // Save updated investment
     } catch (error) {

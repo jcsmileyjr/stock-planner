@@ -48,7 +48,7 @@ export default function EditForm ({content}: {content: dataType}) {
                 <InputNumber label="Target Buy Price" property="targetBuyPrice" data={currentStock["targetBuyPrice"]} />
                 <InputNumber label="Purchased Price" property="purchasedPrice" data={currentStock["purchasedPrice"]} />
                 <InputNumber label="Quantity" property="quantity" data={currentStock["quantity"]} />
-                <InputDate label="Purchase Date" data={currentStock["purchaseDate"]} />
+                <InputDate label="Purchase Date" property='purchaseDate' data={currentStock["purchaseDate"]} />
                 <div className="flex flex-col mb-2">
                     <label htmlFor="password" className="font-bold">Password</label>
                     <input

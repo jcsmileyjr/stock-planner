@@ -35,7 +35,7 @@ export default function PurchaseInvestments () {
                     <InputNumber label="Target Buy Price" property="targetBuyPrice" data={0} />
                     <InputNumber label="Purchased Price" property="purchasedPrice" data={0} />
                     <InputNumber label="Quantity" property="quantity" data={0} />
-                    <InputDate label="Purchase Date" data={dayjs().format("MM/DD/YYYY")}/>
+                    <InputDate label="Purchase Date" property='purchaseDate' data={dayjs().format("MM/DD/YYYY")}/>
                     <div className="flex flex-col mb-2">
                         <label htmlFor="password" className="font-bold">Password</label>
                         <input

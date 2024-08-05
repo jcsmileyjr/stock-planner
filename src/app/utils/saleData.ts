@@ -18,10 +18,10 @@ const saleData = async (data : StockType) => {
         const content = serverData[0]; // Extract data from server's array
 
         const index = content.stocks.findIndex((stock: StockType) => stock.symbol === data.symbol);  
-        data.saleDate = dayjs().format("MM/DD/YYYY"); // set sale date to today's date
+        //data.saleDate = dayjs().format("MM/DD/YYYY"); // set sale date to today's date
    
         content.stocks[index] = data;
-
+console.log("Stock sold - saleData:", content.stocks[index]);
         const investments = new Investment(content); // Create new investment with updated investment information        
         await investments.save(); // Save updated investment
     } catch (error) {
