@@ -6,7 +6,9 @@ import { InvestmentProvider, useInvestments } from '../contexts/stocksContext';
 import InputText from "../components/inputText/inputText";
 import InputNumber from "../components/inputNumber/inputNumber";
 import InputStatus from "../components/inputStatus/inputStatus";
+import InputDate from '../components/inputDate/inputDate';
 import SubmitButton from '../components/submitbutton/submitButton';
+import dayjs from 'dayjs';
 
 export default function PurchaseInvestments () {
     const [password, setPassword] = useState("");
@@ -33,6 +35,7 @@ export default function PurchaseInvestments () {
                     <InputNumber label="Target Buy Price" property="targetBuyPrice" data={0} />
                     <InputNumber label="Purchased Price" property="purchasedPrice" data={0} />
                     <InputNumber label="Quantity" property="quantity" data={0} />
+                    <InputDate label="Purchase Date" data={dayjs().format("MM/DD/YYYY")}/>
                     <div className="flex flex-col mb-2">
                         <label htmlFor="password" className="font-bold">Password</label>
                         <input
