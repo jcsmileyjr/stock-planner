@@ -21,7 +21,7 @@ const saleData = async (data : StockType) => {
         //data.saleDate = dayjs().format("MM/DD/YYYY"); // set sale date to today's date
    
         content.stocks[index] = data;
-console.log("Stock sold - saleData:", content.stocks[index]);
+//console.log("Stock sold - saleData:", content.stocks[index]);
         const investments = new Investment(content); // Create new investment with updated investment information        
         await investments.save(); // Save updated investment
     } catch (error) {
