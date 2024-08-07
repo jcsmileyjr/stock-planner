@@ -9,6 +9,7 @@ export default function ScoutInvestments({content}: {content: stockType[]}) {
                 <p className="flex-1 lg:w-1/5 font-bold">Symbol</p>
                 <p className="flex-1 lg:w-1/3  font-bold">Live Price</p>
                 <p className="flex-1 lg:w-1/4  font-bold">Buy Price</p>
+                <p className="hidden laptop:flex flex-1 font-bold">Days Scouted</p>
                 <p className="flex-1 lg:w-1/4  font-bold">Flag</p>
             </div>
             <div className="divide-y mb-8">
