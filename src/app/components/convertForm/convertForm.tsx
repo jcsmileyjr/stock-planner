@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { InvestmentProvider} from '../../contexts/stocksContext';
 import InputText from "../inputText/inputText";
 import InputNumber from "../inputNumber/inputNumber";
+import InputDate from '../inputDate/inputDate';
 import SubmitButton from '../submitbutton/submitButton';
 import InputPickStock from '../inputPickStock/inputPickStock';
 import StockType from '@/app/types/stockType';
@@ -44,6 +45,7 @@ export default function ConvertForm ({content}: {content: StockType[]}) {
                 <InputNumber label="Target Buy Price" property="targetBuyPrice" data={currentStock["targetBuyPrice"]} />
                 <InputNumber label="Purchased Price" property="purchasedPrice" data={currentStock["purchasedPrice"]} />
                 <InputNumber label="Quantity" property="quantity" data={currentStock["quantity"]} />
+                <InputDate label="Purchase Date" property='purchaseDate' data={currentStock["purchaseDate"]} />
                 <div className="flex flex-col mb-2">
                     <label htmlFor="password" className="font-bold">Password</label>
                     <input

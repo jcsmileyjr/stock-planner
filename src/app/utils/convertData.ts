@@ -14,11 +14,10 @@ const convertData = async (data : StockType) => {
         const index = content.stocks.findIndex((stock: StockType) => stock.symbol === data.symbol);        
         const stock_id = content.stocks[index]._id;
         data.status = "purchased";
-        data.purchaseDate = dayjs().format("MM/DD/YYYY"); // set purchased date to today's date
+        //data.purchaseDate = dayjs().format("MM/DD/YYYY"); // set purchased date to today's date
         
         content.stocks[index] = data;
         content.stocks[index]._id = stock_id;
-        
         const investments = new Investment(content); // Create new investment with updated investment information        
         await investments.save(); // Save updated investment
     } catch (error) {
