@@ -13,6 +13,7 @@ import dayjs from 'dayjs';
 export default function PurchaseInvestments () {
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState(false);
+    const [status, setStatus] = useState(true);
 
     const resetPassword = (results: boolean) => {
         setPassword("");
@@ -23,6 +24,14 @@ export default function PurchaseInvestments () {
         }
     }
 
+    const setupScoutForm = (stockType: string) => {
+        if (stockType === "scouted") {
+            setStatus(true);
+        } else {
+            setStatus(false);
+        }
+    }
+
     return (
         <main className="flex min-h-screen flex-col mx-4">
             <Header />
@@ -30,11 +39,11 @@ export default function PurchaseInvestments () {
             <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
                 <InvestmentProvider>
                     <InputText label="Symbol" property="symbol" data="" />
-                    <InputStatus label="Status" property="status" data="" disableInput={false} />
-                    <InputNumber label="Target Sell Price" property="targetSellPrice" data={0} />
-                    <InputNumber label="Target Buy Price" property="targetBuyPrice" data={0} />
-                    <InputNumber label="Purchased Price" property="purchasedPrice" data={0} />
-                    <InputNumber label="Quantity" property="quantity" data={0} />
+                    <InputStatus label="Status" property="status" data="scouted" disableInput={false} getStatus={setupScoutForm} />
+                    <InputNumber label="Target Sell Price" property="targetSellPrice" data={0} disableInput={false} />
+                    <InputNumber label="Target Buy Price" property="targetBuyPrice" data={0} disableInput={false} />
+                    <InputNumber label="Purchased Price" property="purchasedPrice" data={0} disableInput={status} />
+                    <InputNumber label="Quantity" property="quantity" data={0} disableInput={status} />
                     <InputDate label="Purchase Date" property='purchaseDate' data={dayjs().format("MM/DD/YYYY")}/>
                     <div className="flex flex-col mb-2">
                         <label htmlFor="password" className="font-bold">Password</label>

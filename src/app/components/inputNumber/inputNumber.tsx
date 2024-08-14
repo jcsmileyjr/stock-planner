@@ -2,7 +2,7 @@
 import { useState, useEffect} from 'react';
 import { useInvestments } from "@/app/contexts/stocksContext"
 import updateState from '@/app/utils/updateInvestment';
-export default function InputNumber ({label, property, data}: {label: string, property: string, data: number}) {
+export default function InputNumber ({label, property, data, disableInput = false}: {label: string, property: string, data: number, disableInput:boolean}) {
     const { state, dispatch } = useInvestments();
     const [value, setValue] = useState("");
     
@@ -21,7 +21,8 @@ export default function InputNumber ({label, property, data}: {label: string, pr
                 value={value}
                 aria-label={label}
                 onChange={(e) => {updateState(e.target.value, property, state, dispatch), setValue(e.target.value)}}
-                className="border-2 border-slate-500 rounded-md p-1"
+                className={`border-2 border-slate-500 rounded-md p-1 ${disableInput ? "bg-slate-500 " : "bg-white"}`}
+                disabled={disableInput}
             />
         </div>
     )

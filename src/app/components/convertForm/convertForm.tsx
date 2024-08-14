@@ -41,10 +41,10 @@ export default function ConvertForm ({content}: {content: StockType[]}) {
             <InvestmentProvider>
                 <InputPickStock label="Pick a Stock" stocks={content} getStock={updateStock} isSale={false} />
                 <InputText label="Symbol" property="symbol" data={currentStock["symbol"]} />
-                <InputNumber label="Target Sell Price" property="targetSellPrice" data={currentStock["targetSellPrice"]} />
-                <InputNumber label="Target Buy Price" property="targetBuyPrice" data={currentStock["targetBuyPrice"]} />
-                <InputNumber label="Purchased Price" property="purchasedPrice" data={currentStock["purchasedPrice"]} />
-                <InputNumber label="Quantity" property="quantity" data={currentStock["quantity"]} />
+                <InputNumber label="Target Sell Price" property="targetSellPrice" data={currentStock["targetSellPrice"]} disableInput={false} />
+                <InputNumber label="Target Buy Price" property="targetBuyPrice" data={currentStock["targetBuyPrice"]} disableInput={false} />
+                <InputNumber label="Purchased Price" property="purchasedPrice" data={currentStock["purchasedPrice"]} disableInput={false} />
+                <InputNumber label="Quantity" property="quantity" data={currentStock["quantity"]} disableInput={false} />
                 <InputDate label="Purchase Date" property='purchaseDate' data={currentStock["purchaseDate"]} />
                 <div className="flex flex-col mb-2">
                     <label htmlFor="password" className="font-bold">Password</label>
