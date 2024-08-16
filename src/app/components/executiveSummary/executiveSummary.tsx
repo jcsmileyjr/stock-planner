@@ -75,23 +75,23 @@ export default function ExecutiveSummary({content}: {content: dataType}) {
         <section className=" col-span-1 mb-8">
             <h1 className="underline font-bold uppercase text-2xl mb-2">Executive Summary</h1>
             <div className="flex flex-row justify-between mb-2">
-                <div className='flex flex-row items-center'><p>Total Investments</p> <InformationModal prompt='totalInvestment' />:</div>
+                <div className='flex flex-row items-center'>Total Investments <InformationModal prompt='totalInvestment' />:</div>
                 <p>${totalInvestments}</p>
             </div>
             <div className="flex flex-row justify-between mb-2">
-                <p className='flex flex-row'>Initial Investments  <InformationModal prompt='initialInvestment' />:</p>
+                <div className='flex flex-row'><p>Initial Investments</p> <InformationModal prompt='initialInvestment' />:</div>
                 <p>${content.initialInvestment}</p>
             </div>
             <div className="flex flex-row justify-between mb-2">
-                <p className='flex flex-row'>Profits (wins/losses) <InformationModal prompt='profits' />:</p>
+                <div className='flex flex-row'>Profits (wins/losses) <InformationModal prompt='profits' />:</div>
                 <p>${calculateProfit(content)}</p>
             </div>  
             <div className="flex flex-row justify-between mb-2">
-                <p className='flex flex-row'> Winning Stocks  <InformationModal prompt='winners' />:</p>
+                <div className='flex flex-row'> Winning Stocks  <InformationModal prompt='winners' />:</div>
                 <p>#{calculateWinners(content)}</p>
             </div>  
             <div className="flex flex-row justify-between mb-2">
-                <p className='flex flex-row'>Losing Stocks  <InformationModal prompt='losers' />:</p>
+                <div className='flex flex-row'>Losing Stocks  <InformationModal prompt='losers' />:</div>
                 <p>#{calculateLosers(content)}</p>
             </div>                                
         
