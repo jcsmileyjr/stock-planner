@@ -52,6 +52,29 @@ const calculateTotalInvestments = (data: dataType) => {
     return amount.toFixed(2);
 }
 
+const calculateTotalInvestmentsProfitMargin = (data: dataType) => {
+    let profitMargin = 0;
+    data.stocks.forEach((stock) => {
+        if (stock.status === 'purchased') {
+            profitMargin += calculateProfitMargin(stock);
+        }
+    })
+
+    return profitMargin.toFixed(2);
+}
+
+const calculatePotentialInvestmentsProfitMargin = (data: dataType) => {
+    let potentialProfitMargin = 0;
+    data.stocks.forEach((stock) => {
+        if (stock.status === 'purchased') {
+            let calculatedPrice = stock.targetSellPrice - stock.purchasedPrice;
+            potentialProfitMargin += parseFloat((calculatedPrice * stock.quantity).toFixed(2));
+        }
+    })
+
+    return potentialProfitMargin.toFixed(2);
+}
+
 /**
  * Calculates the total profit made from selling stocks based on the given data.
  *
@@ -81,6 +104,14 @@ export default function ExecutiveSummary({content}: {content: dataType}) {
             <div className="flex flex-row justify-between mb-2">
                 <div className='flex flex-row'><p>Initial Investments</p> <InformationModal prompt='initialInvestment' />:</div>
                 <p>${content.initialInvestment}</p>
+            </div>
+            <div className="flex flex-row justify-between mb-2">
+                <div className='flex flex-row items-center'>Current Total Profit Margin <InformationModal prompt='totalInvestment' />:</div>
+                <p>${calculateTotalInvestmentsProfitMargin(content)}</p>
+            </div>
+            <div className="flex flex-row justify-between mb-2">
+                <div className='flex flex-row items-center'>Potential Total Profit Margin <InformationModal prompt='totalInvestment' />:</div>
+                <p>${calculatePotentialInvestmentsProfitMargin(content)}</p>
             </div>
             <div className="flex flex-row justify-between mb-2">
                 <div className='flex flex-row'>Profits (wins/losses) <InformationModal prompt='profits' />:</div>
