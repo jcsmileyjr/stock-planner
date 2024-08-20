@@ -52,6 +52,12 @@ const calculateTotalInvestments = (data: dataType) => {
     return amount.toFixed(2);
 }
 
+/**
+ * Calculates the total profit margin from all purchased stocks in the given data.
+ *
+ * @param {dataType} data - The data object containing stock information.
+ * @return {string} The total profit margin as a string with two decimal places.
+ */
 const calculateTotalInvestmentsProfitMargin = (data: dataType) => {
     let profitMargin = 0;
     data.stocks.forEach((stock) => {
@@ -63,6 +69,12 @@ const calculateTotalInvestmentsProfitMargin = (data: dataType) => {
     return profitMargin.toFixed(2);
 }
 
+/**
+ * Calculates the total potential profit margin from all purchased stocks in the given data.
+ *
+ * @param {dataType} data - The data object containing stock information.
+ * @return {string} The total potential profit margin as a string with two decimal places.
+ */
 const calculatePotentialInvestmentsProfitMargin = (data: dataType) => {
     let potentialProfitMargin = 0;
     data.stocks.forEach((stock) => {
