@@ -25,17 +25,23 @@ export default async function calculateData () {
         revisedData.stocks = TestData.stocks.map((oldStock:stockType) => {
             const foundStock = stockPrices.find((stock:stockType) => stock.symbol === oldStock.symbol);
     
-            if (foundStock) {
-            let flagType = getFlag(oldStock);
-            return {
-                ...oldStock, 
-                name: foundStock.name,
-                currentPrice: oldStock.status === 'sold' ? getParsedDollarAmount(oldStock.currentPrice) : getParsedDollarAmount(foundStock.price),
-                purchasedPrice: getParsedDollarAmount(oldStock.purchasedPrice),
-                flag: flagType
-            }
+            if (foundStock) {                
+                if (oldStock.status !== 'sold') {
+                    oldStock.currentPrice = foundStock.price
+                }
+
+                let flagType = getFlag(oldStock);
+
+
+                return {
+                    ...oldStock, 
+                    name: foundStock.name,
+                    currentPrice: oldStock.status === 'sold' ? getParsedDollarAmount(oldStock.currentPrice) : getParsedDollarAmount(foundStock.price),
+                    purchasedPrice: getParsedDollarAmount(oldStock.purchasedPrice),
+                    flag: flagType
+                }
             } else {
-            return oldStock
+                return oldStock
             }
         })
     } else {
