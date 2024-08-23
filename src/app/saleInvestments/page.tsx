@@ -1,11 +1,17 @@
 import Header from "../components/header/header";
 import SaleForm from "../components/saleForm/saleForm";
-import getData from "../utils/getData";
+import calculateData from "../utils/calculateData";
 
+/**
+ * SaleInvestments component
+ *
+ * This component renders the sale investment setup page.
+ *
+ * The component fetches the content from the calculateData function and
+ * passes it to the SaleForm component.
+ */
 export default async function SaleInvestments () {
-    const response = await getData();
-    const data = await response.json();
-    const content = data[0];
+    const content = await calculateData();
     return (
         <main className="flex min-h-screen flex-col mx-4">
             <Header />
