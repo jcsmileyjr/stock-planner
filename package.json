@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@netlify/functions": "^2.7.0",
+    "chart.js": "^4.4.4",
     "dayjs": "^1.11.12",
     "mongodb": "^6.7.0",
     "mongoose": "^8.4.1",
     "next": "14.0.4",
     "react": "^18",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18"
   },
   "devDependencies": {
