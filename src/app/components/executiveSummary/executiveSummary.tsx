@@ -1,6 +1,8 @@
 import dataType from '../../types/dataType';
 import InformationModal from '../informationModal/informationModal';
 import calculateProfitMargin from '../../utils/calculateProfitMargin';
+import calculatePotentialInvestmentsProfitMargin from '@/app/utils/calculatePotentialInvestmentsProfitMargin';
+import calculateTotalInvestmentsProfitMargin from '@/app/utils/calculateTotalInvestmentsProfitMargin';
 
 /**
  * Determines the number of winners based on the given data.
@@ -50,41 +52,6 @@ const calculateTotalInvestments = (data: dataType) => {
     })
 
     return amount.toFixed(2);
-}
-
-/**
- * Calculates the total profit margin from all purchased stocks in the given data.
- *
- * @param {dataType} data - The data object containing stock information.
- * @return {string} The total profit margin as a string with two decimal places.
- */
-const calculateTotalInvestmentsProfitMargin = (data: dataType) => {
-    let profitMargin = 0;
-    data.stocks.forEach((stock) => {
-        if (stock.status === 'purchased') {
-            profitMargin += calculateProfitMargin(stock);
-        }
-    })
-
-    return profitMargin.toFixed(2);
-}
-
-/**
- * Calculates the total potential profit margin from all purchased stocks in the given data.
- *
- * @param {dataType} data - The data object containing stock information.
- * @return {string} The total potential profit margin as a string with two decimal places.
- */
-const calculatePotentialInvestmentsProfitMargin = (data: dataType) => {
-    let potentialProfitMargin = 0;
-    data.stocks.forEach((stock) => {
-        if (stock.status === 'purchased') {
-            let calculatedPrice = stock.targetSellPrice - stock.purchasedPrice;
-            potentialProfitMargin += parseFloat((calculatedPrice * stock.quantity).toFixed(2));
-        }
-    })
-
-    return potentialProfitMargin.toFixed(2);
 }
 
 /**

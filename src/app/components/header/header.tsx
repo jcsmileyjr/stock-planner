@@ -20,6 +20,7 @@ export default function Header() {
                 <Link href='/editInvestments' className="text-cyan-700 underline hover:text-indigo-700 ml-4">Edit Investment</Link>
                 <Link href='/saleInvestments' className="text-cyan-700 underline hover:text-indigo-700 ml-4">Sale Investment</Link>
                 <Link href='/convertInvestments' className="text-cyan-700 underline hover:text-indigo-700 ml-4">Convert Investment</Link>
+                <Link href='/charts' className="text-cyan-700 underline hover:text-indigo-700 ml-4">Charts</Link>
             </div>
             
             {isMenuOpen &&
@@ -28,6 +29,7 @@ export default function Header() {
                     <Link href='/editInvestments' className="text-cyan-700 underline hover:text-indigo-700">Edit Investment</Link>
                     <Link href='/saleInvestments' className="text-cyan-700 underline hover:text-indigo-700 ml-4">Sale Investment</Link>
                     <Link href='/convertInvestments' className="text-cyan-700 underline hover:text-indigo-700 ml-4">Convert Investment</Link>
+                    <Link href='/charts' className="text-cyan-700 underline hover:text-indigo-700 ml-4">Charts</Link>
                 </div>
             }
             
