@@ -70,6 +70,7 @@ export default function SaleForm ({content}: {content: dataType}) {
                         className="border-2 border-slate-500 rounded-md p-2"
                         />
                 </div>
+                <p className="text-sm text-red-600 font-bold mb-6">For Demo week, any password will work</p>
                 <SubmitButton pwd={password} type="saleInvestment" cleanUp={cleanUp} error={passwordError} />
                 <div className='flex justify-center align-center mt-4'>
                     <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>
