@@ -8,7 +8,7 @@ export default async function Charts(){
         <main className="flex min-h-screen flex-col mx-4">
             <Header />
             <h2 className="uppercase text-xl laptop:text-2xl font-bold underline text-center mb-4">Charts</h2>
-            <ChartForm content={content} />
+            <ChartForm content={data} />
         </main>
     )
 }

@@ -1,5 +1,7 @@
 "use client";
 import dataType from "@/app/types/dataType";
+import calculatePotentialInvestmentsProfitMargin  from '@/app/utils/calculatePotentialInvestmentsProfitMargin';
+import calculateTotalInvestmentsProfitMargin from '@/app/utils/calculateTotalInvestmentsProfitMargin';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -7,9 +9,13 @@ import {
     Tooltip,
     PointElement,
     LineElement,
+    BarController,
+    BarElement,
+    Title, 
+    Legend
 } from "chart.js";
 import { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 
 // Register ChartJS components using ChartJS.register
 ChartJS.register(
@@ -17,21 +23,61 @@ ChartJS.register(
     LinearScale,
     PointElement,
     LineElement,
-    Tooltip
-);
-
-const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-    }]
-}  
+    Tooltip,
+    BarController,
+    BarElement,
+    Title, 
+    Legend
+); 
 
 
 const ChartForm = ({content}: {content: dataType}) => {
-    if (!data) {
+    const potentialProfitMargin = calculatePotentialInvestmentsProfitMargin(content);
+    const totalProfitMargin = calculateTotalInvestmentsProfitMargin(content);
+    console.log("totalProfitMargin", totalProfitMargin);
+
+    const data = {
+        labels: ['Current Profit Margin vs Potential Profit Margin'],
+        datasets: [{
+            label: 'Current Profit Margin',
+            data: [totalProfitMargin],
+            borderThickness: 10,
+            backgroundColor: 'red',
+            borderColor: 'black',
+        },
+        {
+            label: 'Potential Profit Margin',
+            data: [potentialProfitMargin],
+            borderThickness: 10,
+            backgroundColor: 'green',
+        }]
+    } 
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top' as const,
+                align: 'start' as const,
+            },
+            title: {
+                text: 'Profit Margin',
+                display: true,
+                font: {
+                    size: 20
+                }
+            }
+        },
+        maintainAspectRatio: false,
+        elemnts: {
+            bar : {
+                barPercentage: 10,
+                categoryPercentage: 100
+            }
+        }
+    }
+
+    if (!potentialProfitMargin || !totalProfitMargin) {
         return (
             <div className="flex items-center justify-center h-screen">
                 <div className="animate-spin rounded-full border-4 border-solid border-current border-r-transparent h-12 w-12"></div>
@@ -40,8 +86,9 @@ const ChartForm = ({content}: {content: dataType}) => {
     }
     
     return (
-        <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
-            <Line data={data} />
+        <section className="w-1/2 sm:mx-auto">
+            {/* <Line data={data} /> */}
+            <Bar data={data} height={300} width={500} options={options} />
         </section>  
     );
 }
