@@ -30,7 +30,7 @@ export default function InputNumber ({label, property, data, disableInput = fals
                 value={ value}
                 aria-label={label}
                 onChange={(e) => {updateState(e.target.value, property, state, dispatch), setValue(e.target.value)}}
-                className={`border-2 border-slate-500 rounded-md p-1 ${disableInput ? "bg-slate-500 " : "bg-white"}`}
+                className={`border-2 border-slate-500 rounded-md p-1 ${disableInput ? "bg-slate-500 text-slate-500 " : "bg-white text-black"}`}
                 disabled={disableInput}
             />
         </div>
