@@ -41,14 +41,14 @@ export default function EditForm ({content}: {content: dataType}) {
     return (
         <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
             <InvestmentProvider>
-                <InputPickStock label="Pick a Stock" stocks={content.stocks} getStock={updateStock} isSale={false} />
-                <InputText label="Symbol" property="symbol" data={currentStock["symbol"]} />
-                <InputStatus label="Status" property="status" data={currentStock["status"]} disableInput={true} getStatus={() => {}} />
-                <InputNumber label="Target Sell Price" property="targetSellPrice" data={currentStock["targetSellPrice"]} disableInput={false} />
-                <InputNumber label="Target Buy Price" property="targetBuyPrice" data={currentStock["targetBuyPrice"]} disableInput={false} />
-                <InputNumber label="Purchased Price" property="purchasedPrice" data={currentStock["purchasedPrice"]} disableInput={false} />
-                <InputNumber label="Quantity" property="quantity" data={currentStock["quantity"]} disableInput={false} />
-                <InputDate label="Purchase Date" property='purchaseDate' data={currentStock["purchaseDate"]} />
+                <InputPickStock description='Pick a stock already in the portfolio' label="Pick a Stock" stocks={content.stocks} getStock={updateStock} isSale={false} />
+                <InputText description='Investment stock symbol (e.g., NFLX for Netflix)' label="Symbol" property="symbol" data={currentStock["symbol"]} />
+                <InputStatus description='Designation of a purchased or monitored stock' label="Status" property="status" data={currentStock["status"]} disableInput={true} getStatus={() => {}} />
+                <InputNumber description='Minimum price for "Sale Now" alert' label="Target Sell Price" property="targetSellPrice" data={currentStock["targetSellPrice"]} disableInput={false} />
+                <InputNumber description='Minimum price for "Buy Now" alert' label="Target Buy Price" property="targetBuyPrice" data={currentStock["targetBuyPrice"]} disableInput={false} />
+                <InputNumber description='Purchase price of the stock' label="Purchased Price" property="purchasedPrice" data={currentStock["purchasedPrice"]} disableInput={false} />
+                <InputNumber description='Quantity of shares purchased' label="Quantity" property="quantity" data={currentStock["quantity"]} disableInput={false} />
+                <InputDate description='Date stock was added to the app' label="Purchase Date" property='purchaseDate' data={currentStock["purchaseDate"]} />
                 <div className="flex flex-col mb-2">
                     <label htmlFor="password" className="font-bold">Password</label>
                     <input
@@ -60,6 +60,7 @@ export default function EditForm ({content}: {content: dataType}) {
                         className="border-2 border-slate-500 rounded-md p-2"
                         />
                 </div>
+                <p className="text-sm text-red-600 font-bold mb-2">For Demo week, any password will work</p>
                 <SubmitButton pwd={password} type="editInvestment" cleanUp={cleanUp} error={passwordError} />
                 <div className='flex justify-center align-center mt-4'>
                     <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>

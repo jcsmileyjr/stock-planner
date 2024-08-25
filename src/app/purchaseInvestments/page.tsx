@@ -38,13 +38,13 @@ export default function PurchaseInvestments () {
             <h2 className="uppercase text-xl laptop:text-2xl font-bold underline text-center mb-4">Purchase Investment Setup</h2>
             <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
                 <InvestmentProvider>
-                    <InputText label="Symbol" property="symbol" data="" />
-                    <InputStatus label="Status" property="status" data="scouted" disableInput={false} getStatus={setupScoutForm} />
-                    <InputNumber label="Target Sell Price" property="targetSellPrice" data={0} disableInput={false} />
-                    <InputNumber label="Target Buy Price" property="targetBuyPrice" data={0} disableInput={false} />
-                    <InputNumber label="Purchased Price" property="purchasedPrice" data={0} disableInput={status} />
-                    <InputNumber label="Quantity" property="quantity" data={0} disableInput={status} />
-                    <InputDate label="Purchase Date" property='purchaseDate' data={dayjs().format("MM/DD/YYYY")}/>
+                    <InputText description='Investment stock symbol (e.g., NFLX for Netflix)' label="Symbol" property="symbol" data="" />
+                    <InputStatus description='Designation of a purchased or monitored stock' label="Status" property="status" data="scouted" disableInput={false} getStatus={setupScoutForm} />
+                    <InputNumber description='Minimum price for "Sale Now" alert' label="Target Sell Price" property="targetSellPrice" data={0} disableInput={false} />
+                    <InputNumber description='Minimum price for "Buy Now" alert' label="Target Buy Price" property="targetBuyPrice" data={0} disableInput={false} />
+                    <InputNumber description='Purchase price of the stock' label="Purchased Price" property="purchasedPrice" data={0} disableInput={status} />
+                    <InputNumber description='Quantity of shares purchased' label="Quantity" property="quantity" data={0} disableInput={status} />
+                    <InputDate description='Date stock was added to the app' label="Purchase Date" property='purchaseDate' data={dayjs().format("MM/DD/YYYY")}/>
                     <div className="flex flex-col mb-2">
                         <label htmlFor="password" className="font-bold">Password</label>
                         <input
@@ -56,6 +56,7 @@ export default function PurchaseInvestments () {
                             className="border-2 border-slate-500 rounded-md p-2"
                             />
                     </div>
+                    <p className="text-sm text-red-600 font-bold mb-2">For Demo week, any password will work</p>
                     <SubmitButton pwd={password} type="purchaseInvestment" cleanUp={resetPassword} error={passwordError} />
                     <div className='flex justify-center align-center mt-4'>
                         <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>

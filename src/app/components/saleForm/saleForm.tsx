@@ -49,9 +49,9 @@ export default function SaleForm ({content}: {content: dataType}) {
     return (
         <section className="sm:w-1/2  md:w-1/3 laptop:w-1/4 sm:mx-auto">
             <InvestmentProvider>
-                <InputPickStock label="Pick a Stock" stocks={purchasedStocks} getStock={updateStock} isSale={true} />
-                <InputDate label="Date of Sale" property="saleDate" data={dayjs().format("MM/DD/YYYY")} />
-                <InputNumber disableInput={false} label="Current Price" property="currentPrice" data={currentStock["currentPrice"]} />
+                <InputPickStock description='Pick a stock already purchased in the portfolio' label="Pick a Stock" stocks={purchasedStocks} getStock={updateStock} isSale={true} />
+                <InputDate description='Date stock was sold' label="Date of Sale" property="saleDate" data={dayjs().format("MM/DD/YYYY")} />
+                <InputNumber description='User can write in the purchased price' disableInput={false} label="Current Price" property="currentPrice" data={currentStock["currentPrice"]} />
                 <p className='font-bold'>Details</p>
                 <p>Current Price: ${currentStock["currentPrice"]}</p>
                 <p>Quanity : #{currentStock["quantity"]}</p>
@@ -70,6 +70,7 @@ export default function SaleForm ({content}: {content: dataType}) {
                         className="border-2 border-slate-500 rounded-md p-2"
                         />
                 </div>
+                <p className="text-sm text-red-600 font-bold mb-2">For Demo week, any password will work</p>
                 <SubmitButton pwd={password} type="saleInvestment" cleanUp={cleanUp} error={passwordError} />
                 <div className='flex justify-center align-center mt-4'>
                     <Link href='/' className="text-red-600 underline hover:text-indigo-700 text-center">Back</Link>
