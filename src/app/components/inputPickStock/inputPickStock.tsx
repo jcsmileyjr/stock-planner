@@ -4,7 +4,7 @@ import StockType from '@/app/types/stockType';
 import prepareSaleInvestment from '@/app/utils/prepareSaleInvestment';
 import { useInvestments } from "@/app/contexts/stocksContext"
 
-export default function InputPickStock ({label, stocks, getStock, isSale}: {label: string, stocks: StockType[], getStock: Function, isSale: boolean}) {
+export default function InputPickStock ({label, stocks, getStock, isSale, description}: {label: string, stocks: StockType[], getStock: Function, isSale: boolean, description: string}) {
     const { state, dispatch } = useInvestments();
     const [value, setValue] = useState("");
 
@@ -25,12 +25,13 @@ export default function InputPickStock ({label, stocks, getStock, isSale}: {labe
     return (
         <div className="flex flex-col mb-2">
             <label htmlFor={label} className="font-bold">{label}</label>
-            <select value={value} className="border-2 border-slate-500 rounded-md p-2" name={label} id={label} onChange={(e) => updateStock(e.target.value)}>
+            <select value={value} className="border-2 border-slate-500 rounded-md p-2 mb-2" name={label} id={label} onChange={(e) => updateStock(e.target.value)}>
                 <option value="">Select a Stock</option>
                 {stocks.map((stock: StockType) => (
                     <option key={stock.symbol} value={stock.symbol}>{stock.symbol}</option>
                 ))}
             </select>
+            <p className="text-sm text-slate-500 font-bold">{description}</p>
         </div>
     )
 }

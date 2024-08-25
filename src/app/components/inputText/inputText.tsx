@@ -2,7 +2,7 @@
 import { useState, useEffect} from 'react';
 import { useInvestments } from "@/app/contexts/stocksContext"
 import updateState from '@/app/utils/updateInvestment';
-export default function InputText ({label, property, data}: {label: string, property: string, data: string}) {
+export default function InputText ({label, property, data, description}: {label: string, property: string, data: string, description: string}) {
     const { state, dispatch } = useInvestments();
     const [content, setContent] = useState("");
 
@@ -23,6 +23,7 @@ export default function InputText ({label, property, data}: {label: string, prop
                 onChange={(e) => {updateState(e.target.value, property, state, dispatch), setContent(e.target.value)}}
                 className="border-2 border-slate-500 rounded-md p-2"
             />
+            <p className="text-sm text-slate-500 font-bold mb-2">{description}</p>
         </div>
     )
 }

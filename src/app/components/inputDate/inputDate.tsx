@@ -4,7 +4,7 @@ import { useInvestments } from "@/app/contexts/stocksContext"
 import updateState from '@/app/utils/updateInvestment';
 import dayjs from 'dayjs';
 
-export default function InputDate ({label, property, data}: {label: string, property: string, data: string}) {
+export default function InputDate ({label, property, data, description}: {label: string, property: string, data: string, description: string}) {
     const { state, dispatch } = useInvestments();
     const [value, setValue] = useState("");
     
@@ -23,8 +23,9 @@ export default function InputDate ({label, property, data}: {label: string, prop
                 value={value}
                 aria-label={label}
                 onChange={(e) => {updateState(dayjs(e.target.value).format("MM/DD/YYYY"), property, state, dispatch), setValue(e.target.value)}}
-                className="border-2 border-slate-500 rounded-md p-1"
+                className="border-2 border-slate-500 rounded-md p-1 mb-2"
             />
+            <p className="text-sm text-slate-500 font-bold ">{description}</p>
         </div>
     )
 }
