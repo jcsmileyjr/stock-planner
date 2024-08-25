@@ -86,7 +86,7 @@ const ChartForm = ({content}: {content: dataType}) => {
     }
     
     return (
-        <section className="w-1/2 sm:mx-auto">
+        <section className="w-full lg:w-1/2 sm:mx-auto">
             {/* <Line data={data} /> */}
             <Bar data={data} height={300} width={500} options={options} />
         </section>  
