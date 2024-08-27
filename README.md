@@ -18,6 +18,7 @@ This project is under construction!!!!
 - **Jest** serves as a component testing framework. 
 - **Netlify** is the hosting platform employed for hosting the application.
 - **Intelligence Financial Modeling Prep** provided stock prices via an API. https://intelligence.financialmodelingprep.com/
+- **Chartjs** is an open-source library that helps you easily visualize data using JavaScript. 
 
 ## Get Started
 1. Clone the repo
