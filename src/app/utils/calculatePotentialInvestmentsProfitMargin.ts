@@ -15,7 +15,11 @@ const calculatePotentialInvestmentsProfitMargin = (data: dataType) => {
         }
     })
 
-    return potentialProfitMargin.toFixed(2);
+    if(potentialProfitMargin < 0) {
+        return `-$${(Math.abs(potentialProfitMargin)).toFixed(2)}`;
+    } else {
+        return `$${potentialProfitMargin.toFixed(2)}`
+    }
 }
 
 export default calculatePotentialInvestmentsProfitMargin;

@@ -14,7 +14,11 @@ const calculateTotalInvestmentsProfitMargin = (data: dataType) => {
         }
     })
 
-    return profitMargin.toFixed(2);
+    if(profitMargin < 0) {
+        return `-$${(Math.abs(profitMargin)).toFixed(2)}`;
+    } else {
+        return `$${profitMargin.toFixed(2)}`
+    }
 }
 
 export default calculateTotalInvestmentsProfitMargin;
