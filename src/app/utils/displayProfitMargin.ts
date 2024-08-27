@@ -4,8 +4,8 @@ import stockType from "../types/stockType";
 export default function displayProfitMargin (stock: stockType) {
     let amount = calculateProfitMargin(stock);
     if(amount < 0) {
-        return `-$${Math.abs(amount)}`;
+        return `-$${(Math.abs(amount)).toFixed(2)}`;
     } else {
-        return `$${amount}`
+        return `$${amount.toFixed(2)}`
     }
 }
