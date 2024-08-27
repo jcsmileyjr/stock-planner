@@ -86,11 +86,11 @@ export default function ExecutiveSummary({content}: {content: dataType}) {
             </div>
             <div className="flex flex-row justify-between mb-2">
                 <div className='flex flex-row items-center'>Current Total Profit Margin <InformationModal prompt='totalInvestment' />:</div>
-                <p>${calculateTotalInvestmentsProfitMargin(content)}</p>
+                <p>{calculateTotalInvestmentsProfitMargin(content)}</p>
             </div>
             <div className="flex flex-row justify-between mb-2">
                 <div className='flex flex-row items-center'>Potential Total Profit Margin <InformationModal prompt='totalInvestment' />:</div>
-                <p>${calculatePotentialInvestmentsProfitMargin(content)}</p>
+                <p>{calculatePotentialInvestmentsProfitMargin(content)}</p>
             </div>
             <div className="flex flex-row justify-between mb-2">
                 <div className='flex flex-row'>Profits (wins/losses) <InformationModal prompt='profits' />:</div>

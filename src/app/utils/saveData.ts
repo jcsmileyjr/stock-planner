@@ -3,7 +3,6 @@ import { revalidatePath } from 'next/cache';
 import connectDb from '../config/db';
 import Investment from '../models/Investment';
 import StockType from '../types/stockType';
-import dayjs from 'dayjs';
 
 const saveData = async (data : StockType) => {
     try {
@@ -16,7 +15,7 @@ const saveData = async (data : StockType) => {
         }
         data.saleDate = "1/1/2024"; // set sale date
         content.stocks.push(data); // Add new stock to array
-//console.log("Stock added - saveData:", data);
+        //console.log("Stock added - saveData:", data);
         const investments = new Investment(content); // Create new investment with updated investment information
         //console.log("investments created in saved data", investments);
         await investments.save(); // Save updated investment
