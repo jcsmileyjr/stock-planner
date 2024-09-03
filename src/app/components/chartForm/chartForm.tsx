@@ -32,8 +32,8 @@ ChartJS.register(
 
 
 const ChartForm = ({content}: {content: dataType}) => {
-    const potentialProfitMargin = calculatePotentialInvestmentsProfitMargin(content);
-    const totalProfitMargin = calculateTotalInvestmentsProfitMargin(content);
+    const potentialProfitMargin = calculatePotentialInvestmentsProfitMargin(content, true);
+    const totalProfitMargin = calculateTotalInvestmentsProfitMargin(content, true);
     console.log("totalProfitMargin", totalProfitMargin);
 
     const data = {

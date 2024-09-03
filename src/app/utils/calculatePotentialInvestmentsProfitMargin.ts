@@ -6,7 +6,7 @@ import dataType from "../types/dataType";
  * @param {dataType} data - The data object containing stock information.
  * @return {string} The total potential profit margin as a string with two decimal places.
  */
-const calculatePotentialInvestmentsProfitMargin = (data: dataType) => {
+const calculatePotentialInvestmentsProfitMargin = (data: dataType, ifUnformated: boolean) => {
     let potentialProfitMargin = 0;
     data.stocks.forEach((stock) => {
         if (stock.status === 'purchased') {
@@ -14,6 +14,10 @@ const calculatePotentialInvestmentsProfitMargin = (data: dataType) => {
             potentialProfitMargin += parseFloat((calculatedPrice * stock.quantity).toFixed(2));
         }
     })
+
+    if (ifUnformated) {
+        return potentialProfitMargin.toFixed(2);
+    }
 
     if(potentialProfitMargin < 0) {
         return `-$${(Math.abs(potentialProfitMargin)).toFixed(2)}`;
